@@ -9,10 +9,32 @@ Here we describe the way we worked together
 
 Add the design patterns here
 
-## Design Pattern 1
+## Creational Patterns
 
-stuff about the design pattern
+### Builder
 
-## Design Pattern 2
+Code and explanation
 
-More stuff about that
+### Factory
+
+Code and explanation
+
+## Structural Patterns
+
+### Adapter
+
+Code and explanation
+
+### Facade
+
+Code and explanation
+
+## Behavioral Patterns
+
+### Strategy
+
+Code and explanation
+
+### Template Method
+
+Code and explanation
