@@ -1,17 +1,22 @@
-public class PoisonedState implements StatusEffectState {
-    public Piece context;
+public class PoisonedState implements PieceState {
+    private Piece context;
 
     public PoisonedState(Piece context) {
         this.context = context;
     }
 
     @Override
-    public void updateDuration() {
+    public boolean isAlive() {
+        return true;
+    };
+
+    @Override
+    public void changeState() {
 
     };
 
     @Override
-    public void removeEffect() {
+    public void updateDuration() {
 
     };
 

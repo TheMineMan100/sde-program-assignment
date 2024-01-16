@@ -1,7 +1,7 @@
-public class StunnedState implements PieceState {
+public class HealthyState implements PieceState {
     private Piece context;
 
-    public StunnedState(Piece context) {
+    public HealthyState(Piece context) {
         this.context = context;
     }
 

@@ -1,17 +1,22 @@
-public class HealingState implements StatusEffectState {
-    public Piece context;
+public class HealingState implements PieceState {
+    private Piece context;
 
     public HealingState(Piece context) {
         this.context = context;
     }
 
     @Override
-    public void updateDuration() {
+    public boolean isAlive() {
+        return true;
+    };
+
+    @Override
+    public void changeState() {
 
     };
 
     @Override
-    public void removeEffect() {
+    public void updateDuration() {
 
     };
 
