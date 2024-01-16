@@ -7,5 +7,9 @@ public interface Piece {
 
     void setDamage(int damage);
 
-    void move();
+    void move(Square currentSquare, Square squareToMoveTo);
+
+    void attack();
+
+    void specialAction();
 }

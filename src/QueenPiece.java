@@ -31,8 +31,32 @@ public class QueenPiece implements Piece{
         this.damage = damage;
     }
 
-    @Override
-    public void move() {
+    private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
+        if (
+                (
+                        (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
+                                squareToMoveTo.getY() - currentSquare.getY() != 0) ||
+                        (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+                                squareToMoveTo.getY() - currentSquare.getY() == 0) ||
+                        (
+                                squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+                                squareToMoveTo.getY() - currentSquare.getY() != 0 &&
+                                squareToMoveTo.getX() - currentSquare.getX() == squareToMoveTo.getY() - currentSquare.getY()
+                        )
+                ) &&
+                squareToMoveTo.getPiece() == null
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    @Override
+    public void move(Square currentSquare, Square squareToMoveTo) {
+        if (canMoveToSquare(currentSquare, squareToMoveTo)) {
+            squareToMoveTo.setPiece(this);
+            currentSquare.setPiece(null);
+        }
     }
 }
