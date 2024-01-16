@@ -33,18 +33,18 @@ public class QueenPiece implements Piece{
 
     private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
         if (
+            (
+                (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
+                        squareToMoveTo.getY() - currentSquare.getY() != 0) ||
+                (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+                        squareToMoveTo.getY() - currentSquare.getY() == 0) ||
                 (
-                        (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
-                                squareToMoveTo.getY() - currentSquare.getY() != 0) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == 0) ||
-                        (
-                                squareToMoveTo.getX() - currentSquare.getX() != 0 &&
-                                squareToMoveTo.getY() - currentSquare.getY() != 0 &&
-                                squareToMoveTo.getX() - currentSquare.getX() == squareToMoveTo.getY() - currentSquare.getY()
-                        )
-                ) &&
-                squareToMoveTo.getPiece() == null
+                    squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+                    squareToMoveTo.getY() - currentSquare.getY() != 0 &&
+                    squareToMoveTo.getX() - currentSquare.getX() == squareToMoveTo.getY() - currentSquare.getY()
+                )
+            ) &&
+            squareToMoveTo.getPiece() == null
         ) {
             return true;
         } else {
@@ -59,4 +59,14 @@ public class QueenPiece implements Piece{
             currentSquare.setPiece(null);
         }
     }
+
+    @Override
+    public void attack() {
+
+    };
+
+    @Override
+    public void specialAction() {
+
+    };
 }

@@ -33,25 +33,25 @@ public class KnightPiece implements Piece{
 
     private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
         if (
-                (
-                        (squareToMoveTo.getX() - currentSquare.getX() == 1 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == 2) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == 1 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == -2) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == 2 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == 1) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == 2 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == -1) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == -1 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == 2) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == -1 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == -2) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == -2 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == 1) ||
-                        (squareToMoveTo.getX() - currentSquare.getX() == -2 &&
-                                squareToMoveTo.getY() - currentSquare.getY() == -1)
-                ) &&
-                squareToMoveTo.getPiece() == null
+            (
+                (squareToMoveTo.getX() - currentSquare.getX() == 1 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == 2) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == 1 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == -2) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == 2 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == 1) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == 2 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == -1) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == -1 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == 2) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == -1 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == -2) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == -2 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == 1) ||
+                (squareToMoveTo.getX() - currentSquare.getX() == -2 &&
+                    squareToMoveTo.getY() - currentSquare.getY() == -1)
+            ) &&
+            squareToMoveTo.getPiece() == null
         ) {
             return true;
         } else {
@@ -66,4 +66,14 @@ public class KnightPiece implements Piece{
             currentSquare.setPiece(null);
         }
     }
+
+    @Override
+    public void attack() {
+
+    };
+
+    @Override
+    public void specialAction() {
+
+    };
 }
