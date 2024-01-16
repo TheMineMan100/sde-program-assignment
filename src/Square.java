@@ -1,9 +1,9 @@
-public class Spot {
+public class Square {
     private Piece piece;
     private final int x;
     private final int y;
 
-    public Spot(int x, int y, Piece piece) {
+    public Square(int x, int y, Piece piece) {
         this.piece = piece;
         this.x = x;
         this.y = y;
