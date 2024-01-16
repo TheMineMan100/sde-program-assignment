@@ -15,13 +15,13 @@ Add the design patterns here
 
 Code and explanation
 
-### Factory
+### Factory Method
 
 Code and explanation
 
 ## Structural Patterns
 
-### Adapter
+### Bridge
 
 Code and explanation
 
@@ -31,7 +31,7 @@ Code and explanation
 
 ## Behavioral Patterns
 
-### Strategy
+### State
 
 Code and explanation
 
