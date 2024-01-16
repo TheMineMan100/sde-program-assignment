@@ -1,3 +1,5 @@
+package pieces;
+
 public interface Piece {
     void setAllegiance(Boolean isWhite);
 

@@ -1,3 +1,5 @@
+package builders;
+
 public interface PieceBuilder {
     void reset();
 

@@ -1,4 +1,6 @@
-public class PawnPiece implements Piece{
+package pieces;
+
+public class PawnPiece implements Piece {
     private Boolean isWhite;
 
     private int posX;

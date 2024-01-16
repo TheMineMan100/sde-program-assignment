@@ -1,13 +1,15 @@
-public class DeadState implements PieceState {
+package states;
+
+public class HealthyState implements PieceState {
     private Piece context;
 
-    public DeadState(Piece context) {
+    public HealthyState(Piece context) {
         this.context = context;
     }
 
     @Override
     public boolean isAlive() {
-        return false;
+        return true;
     };
 
     @Override

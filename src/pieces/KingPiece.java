@@ -1,5 +1,11 @@
-public class BishopPiece implements Piece{
+package pieces;
+
+public class KingPiece implements Piece {
     private Boolean isWhite;
+
+    private int posX;
+
+    private int posY;
 
     private int health;
 

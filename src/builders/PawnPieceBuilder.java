@@ -1,4 +1,8 @@
-public class PawnPieceBuilder implements PieceBuilder{
+package builders;
+
+import pieces.PawnPiece;
+
+public class PawnPieceBuilder implements PieceBuilder {
     private PawnPiece pawn = new PawnPiece();
 
     @Override

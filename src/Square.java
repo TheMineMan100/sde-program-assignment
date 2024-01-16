@@ -1,3 +1,5 @@
+import pieces.Piece;
+
 public class Square {
     private Piece piece;
     private final int x;

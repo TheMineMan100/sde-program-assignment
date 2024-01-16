@@ -1,7 +1,12 @@
-public class HealingState implements PieceState {
+package states;
+
+import pieces.Piece;
+import states.PieceState;
+
+public class PoisonedState implements PieceState {
     private Piece context;
 
-    public HealingState(Piece context) {
+    public PoisonedState(Piece context) {
         this.context = context;
     }
 

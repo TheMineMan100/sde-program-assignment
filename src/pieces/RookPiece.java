@@ -1,4 +1,8 @@
-public class KingPiece implements Piece{
+package pieces;
+
+import pieces.Piece;
+
+public class RookPiece implements Piece {
     private Boolean isWhite;
 
     private int posX;
@@ -33,6 +37,6 @@ public class KingPiece implements Piece{
 
     @Override
     public void move() {
-
+        
     }
 }
