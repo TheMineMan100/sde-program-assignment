@@ -12,11 +12,6 @@ public class KingPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.king.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.king.setHealth(health);
     }

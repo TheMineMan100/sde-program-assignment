@@ -12,11 +12,6 @@ public class KnightPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.knight.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.knight.setHealth(health);
     }

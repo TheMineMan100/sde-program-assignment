@@ -12,11 +12,6 @@ public class RookPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.rook.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.rook.setHealth(health);
     }

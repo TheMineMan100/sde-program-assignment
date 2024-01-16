@@ -12,11 +12,6 @@ public class BishopPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.bishop.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.bishop.setHealth(health);
     }

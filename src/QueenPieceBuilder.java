@@ -12,11 +12,6 @@ public class QueenPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.queen.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.queen.setHealth(health);
     }

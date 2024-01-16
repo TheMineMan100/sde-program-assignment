@@ -17,12 +17,6 @@ public class KnightPiece implements Piece{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
-    }
-
-    @Override
     public void setHealth(int health) {
         this.health = health;
     }
@@ -35,5 +29,10 @@ public class KnightPiece implements Piece{
     @Override
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    @Override
+    public void move() {
+
     }
 }

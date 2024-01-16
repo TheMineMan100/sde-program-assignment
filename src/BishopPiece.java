@@ -1,10 +1,6 @@
 public class BishopPiece implements Piece{
     private Boolean isWhite;
 
-    private int posX;
-
-    private int posY;
-
     private int health;
 
     private int armor;
@@ -14,12 +10,6 @@ public class BishopPiece implements Piece{
     @Override
     public void setAllegiance(Boolean isWhite) {
         this.isWhite = isWhite;
-    }
-
-    @Override
-    public void setPosition(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
     }
 
     @Override
@@ -35,5 +25,10 @@ public class BishopPiece implements Piece{
     @Override
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    @Override
+    public void move() {
+
     }
 }

@@ -12,11 +12,6 @@ public class PawnPieceBuilder implements PieceBuilder{
     }
 
     @Override
-    public void setPosition(int posX, int posY) {
-        this.pawn.setPosition(posX, posY);
-    }
-
-    @Override
     public void setHealth(int health) {
         this.pawn.setHealth(health);
     }
