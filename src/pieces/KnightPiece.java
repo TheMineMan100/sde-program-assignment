@@ -3,10 +3,6 @@ package pieces;
 public class KnightPiece implements Piece {
     private Boolean isWhite;
 
-    private int posX;
-
-    private int posY;
-
     private int health;
 
     private int armor;

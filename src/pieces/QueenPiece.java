@@ -1,13 +1,7 @@
 package pieces;
 
-import pieces.Piece;
-
 public class QueenPiece implements Piece {
     private Boolean isWhite;
-
-    private int posX;
-
-    private int posY;
 
     private int health;
 

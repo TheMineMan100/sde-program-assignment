@@ -1,6 +1,5 @@
 package builders;
 
-import builders.PieceBuilder;
 import pieces.RookPiece;
 
 public class RookPieceBuilder implements PieceBuilder {

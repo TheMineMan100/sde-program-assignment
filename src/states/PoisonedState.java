@@ -1,7 +1,6 @@
 package states;
 
 import pieces.Piece;
-import states.PieceState;
 
 public class PoisonedState implements PieceState {
     private Piece context;

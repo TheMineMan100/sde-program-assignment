@@ -1,5 +1,7 @@
 package states;
 
+import pieces.Piece;
+
 public class DeadState implements PieceState {
     private Piece context;
 

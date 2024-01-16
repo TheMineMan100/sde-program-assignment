@@ -1,6 +1,6 @@
 package builders;
 
-import builders.PieceBuilder;
+import pieces.QueenPiece;
 
 public class QueenPieceBuilder implements PieceBuilder {
     private QueenPiece queen = new QueenPiece();

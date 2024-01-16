@@ -1,5 +1,7 @@
 package states;
 
+import pieces.Piece;
+
 public class HealingState implements PieceState {
     private Piece context;
 
