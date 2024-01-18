@@ -1,6 +1,8 @@
 package builders;
 
+import allegiances.Allegiance;
 import pieces.RookPiece;
+import states.PieceState;
 
 public class RookPieceBuilder implements PieceBuilder {
     private RookPiece rook = new RookPiece();
@@ -11,8 +13,13 @@ public class RookPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.rook.setAllegiance(isWhite);
+    public void setAllegiance(Allegiance allegiance) {
+        this.rook.setAllegiance(allegiance);
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.rook.setState(state);
     }
 
     @Override
@@ -28,5 +35,11 @@ public class RookPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(int damage) {
         this.rook.setDamage(damage);
+    }
+
+    public RookPiece getResult() {
+        RookPiece result = this.rook;
+        this.reset();
+        return result;
     }
 }

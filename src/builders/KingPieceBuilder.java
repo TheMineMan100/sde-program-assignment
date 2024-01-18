@@ -1,6 +1,8 @@
 package builders;
 
+import allegiances.Allegiance;
 import pieces.KingPiece;
+import states.PieceState;
 
 public class KingPieceBuilder implements PieceBuilder {
     private KingPiece king = new KingPiece();
@@ -11,8 +13,13 @@ public class KingPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.king.setAllegiance(isWhite);
+    public void setAllegiance(Allegiance allegiance) {
+        this.king.setAllegiance(allegiance);
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.king.setState(state);
     }
 
     @Override
@@ -28,5 +35,11 @@ public class KingPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(int damage) {
         this.king.setDamage(damage);
+    }
+
+    public KingPiece getResult() {
+        KingPiece result = this.king;
+        this.reset();
+        return result;
     }
 }
