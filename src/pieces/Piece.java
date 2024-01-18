@@ -25,6 +25,8 @@ public interface Piece {
 
     public String getSymbol();
 
+    public double getDamage();
+
     public void multiplyDamage(double multiplier);
 
     public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);

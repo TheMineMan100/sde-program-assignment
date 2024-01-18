@@ -49,7 +49,7 @@ public class Main {
 
         } else if (parts[0].equals("Undo-turn")) {
 
-        }else if (parts[0].equals("End")) {
+        } else if (parts[0].equals("End")) {
 
         } else {
             writer.writeLine("Command not recognized");

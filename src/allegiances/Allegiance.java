@@ -57,7 +57,7 @@ public interface Allegiance {
             squareToAttack.getPiece() != null &&
             squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
-
+            squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
         }
     };
 
@@ -102,7 +102,7 @@ public interface Allegiance {
                 }
             }
             if (noPiecesInBetween) {
-
+                squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
             }
         }
     };
@@ -150,7 +150,7 @@ public interface Allegiance {
                 }
             }
             if (noPiecesInBetween) {
-
+                squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
             }
         }
     };
@@ -208,7 +208,7 @@ public interface Allegiance {
                 }
             }
             if (noPiecesInBetween) {
-
+                squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
             }
         }
     };
@@ -280,7 +280,7 @@ public interface Allegiance {
                 }
             }
             if (noPiecesInBetween) {
-
+                squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
             }
         }
     };

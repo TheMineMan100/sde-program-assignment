@@ -24,7 +24,7 @@ public class White implements Allegiance {
             squareToAttack.getPiece() != null &&
             squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
-
+            squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
         }
     };
 }

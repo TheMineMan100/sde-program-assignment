@@ -37,6 +37,11 @@ public class RookPiece implements Piece {
     }
 
     @Override
+    public double getDamage() {
+        return this.damage;
+    };
+
+    @Override
     public void changeState(PieceState state) {
         this.state = state;
     }
