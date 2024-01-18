@@ -10,20 +10,25 @@ The program should run in a java console. We decided on making a chess program, 
 
     Pieces can move like normal chess pieces
 
-    If a piece lands on an enemy piece they perform an attack using their damage against the opponent's health and armour
-        - The pawn is of course an exception, only moving forward and only hitting diagonally up left or up right.
+    If a piece lands on an enemy piece they perform an attack using their damage against the 
+    opponent's health and armour
+        - The pawn is of course an exception, only moving forward and only hitting diagonally up 
+        left or up right.
         - If the damage the piece does isn't enough to kill the enemy piece, neither piece moves
 
-    Pieces can perform piece-specific special actions on any piece they could land on. This means they don't actually move
+    Pieces can perform piece-specific special actions on any piece they could land on. This means 
+    they don't actually move
         Pawn:
             - As usual special ability only hits diagonally
             - Allows the pawn to sacrifice itself to deal double damage to a piece
         Rook:
             - Applies Stunned state to an enemy piece in its movement range
-            - Stunned makes the piece unable to move for the next turn, after which it returns to default (healthy) state
+            - Stunned makes the piece unable to move for the next turn, after which it returns to 
+            default (healthy) state
         Bishop:
             - Applies Healing state (regeneration) to a friendly piece in its movement range
-            - Healing state heals X health per turn for 3 turns, then returns to default (healthy) state
+            - Healing state heals X health per turn for 3 turns, then returns to default (healthy) 
+            state
         Knight:
             - Applies Poisoned state to an enemy piece in its movement range
             - Poisoned makes the piece lose X% of its damage stat for 3 turns
@@ -41,12 +46,15 @@ Before we go to the actual use of the program via console commands, we'll have t
 
 The possible commands to put in the console are:
 
-    Move {coordinates of square containing the piece to be moved} {coordinates of square to move piece to}
+    Move {coordinates of square containing the piece to be moved} {coordinates of square to 
+    move piece to}
 
-    Attack {coordinates of square containing the attacking piece} {coordinates of square containing the piece to be attacked}
+    Attack {coordinates of square containing the attacking piece} {coordinates of square 
+    containing the piece to be attacked}
 
     For Pawn, Rook, Bishop, Knight:
-    Special action {coordinates of square contain the piece doing the special move} {coordinates of square containing the piece to be affected by the special action}
+    Special action {coordinates of square contain the piece doing the special move} {coordinates 
+    of square containing the piece to be affected by the special action}
 
     For Queen, King:
     Special action {coordinates of square contain the piece doing the special move}
