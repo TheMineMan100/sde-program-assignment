@@ -10,11 +10,6 @@ public class HealthyState implements PieceState {
     }
 
     @Override
-    public boolean isAlive() {
-        return true;
-    };
-
-    @Override
     public void changeState() {
 
     };

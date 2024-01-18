@@ -9,11 +9,11 @@ public class RookPiece implements Piece {
 
     private PieceState state;
 
-    private int health;
+    private double health;
 
     private int armor;
 
-    private int damage;
+    private double damage;
 
     @Override
     public void setAllegiance(Allegiance allegiance) {
@@ -21,7 +21,7 @@ public class RookPiece implements Piece {
     }
 
     @Override
-    public void setState(PieceState state) {
+    public void changeState(PieceState state) {
         this.state = state;
     }
 
@@ -41,6 +41,11 @@ public class RookPiece implements Piece {
     }
 
     @Override
+    public void multiplyDamage(double multiplier) {
+        this.damage *= multiplier;
+    }
+
+    @Override
     public void move(Square currentSquare, Square squareToMoveTo) {
         this.allegiance.moveRook(currentSquare, squareToMoveTo);
     }
@@ -53,5 +58,17 @@ public class RookPiece implements Piece {
     @Override
     public void specialAction() {
 
-    };
+    }
+
+    @Override
+    public void takeDamage(double damage) {
+        this.health -= damage;
+    }
+
+    @Override
+    public void gainHealth(double health) {
+        this.health += health;
+    }
+
+    ;
 }
