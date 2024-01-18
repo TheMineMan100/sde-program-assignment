@@ -1,9 +1,9 @@
+package pieces;
+
+import board.Square;
+
 public class PawnPiece implements Piece {
     private Boolean isWhite;
-
-    private int posX;
-
-    private int posY;
 
     private int health;
 

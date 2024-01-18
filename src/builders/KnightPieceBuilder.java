@@ -1,4 +1,8 @@
-public class KnightPieceBuilder implements PieceBuilder{
+package builders;
+
+import pieces.KnightPiece;
+
+public class KnightPieceBuilder implements PieceBuilder {
     private KnightPiece knight = new KnightPiece();
 
     @Override

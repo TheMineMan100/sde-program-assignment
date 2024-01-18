@@ -1,0 +1,19 @@
+package pieces;
+
+import board.Square;
+
+public interface Piece {
+    void setAllegiance(Boolean isWhite);
+
+    void setHealth(int health);
+
+    void setArmor(int armor);
+
+    void setDamage(int damage);
+
+    void move(Square currentSquare, Square squareToMoveTo);
+
+    void attack();
+
+    void specialAction();
+}

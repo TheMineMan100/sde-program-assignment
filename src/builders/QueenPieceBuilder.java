@@ -1,4 +1,8 @@
-public class QueenPieceBuilder implements PieceBuilder{
+package builders;
+
+import pieces.QueenPiece;
+
+public class QueenPieceBuilder implements PieceBuilder {
     private QueenPiece queen = new QueenPiece();
 
     @Override

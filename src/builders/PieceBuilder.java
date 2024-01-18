@@ -1,4 +1,8 @@
-public interface Piece {
+package builders;
+
+public interface PieceBuilder {
+    void reset();
+
     void setAllegiance(Boolean isWhite);
 
     void setHealth(int health);
@@ -6,10 +10,4 @@ public interface Piece {
     void setArmor(int armor);
 
     void setDamage(int damage);
-
-    void move(Square currentSquare, Square squareToMoveTo);
-
-    void attack();
-
-    void specialAction();
 }

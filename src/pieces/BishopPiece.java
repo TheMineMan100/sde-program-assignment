@@ -1,9 +1,9 @@
-public class RookPiece implements Piece{
+package pieces;
+
+import board.Square;
+
+public class BishopPiece implements Piece {
     private Boolean isWhite;
-
-    private int posX;
-
-    private int posY;
 
     private int health;
 
@@ -34,10 +34,9 @@ public class RookPiece implements Piece{
     private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
         if (
             (
-                (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
-                    squareToMoveTo.getY() - currentSquare.getY() != 0) ||
-                (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
-                    squareToMoveTo.getY() - currentSquare.getY() == 0)
+                squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+                squareToMoveTo.getY() - currentSquare.getY() != 0 &&
+                squareToMoveTo.getX() - currentSquare.getX() == squareToMoveTo.getY() - currentSquare.getY()
             ) &&
             squareToMoveTo.getPiece() == null
         ) {

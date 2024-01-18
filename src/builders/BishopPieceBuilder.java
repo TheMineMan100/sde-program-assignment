@@ -1,4 +1,8 @@
-public class BishopPieceBuilder implements PieceBuilder{
+package builders;
+
+import pieces.BishopPiece;
+
+public class BishopPieceBuilder implements PieceBuilder {
     private BishopPiece bishop = new BishopPiece();
 
     @Override

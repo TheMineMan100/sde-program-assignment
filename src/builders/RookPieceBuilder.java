@@ -1,4 +1,8 @@
-public class RookPieceBuilder implements PieceBuilder{
+package builders;
+
+import pieces.RookPiece;
+
+public class RookPieceBuilder implements PieceBuilder {
     private RookPiece rook = new RookPiece();
 
     @Override

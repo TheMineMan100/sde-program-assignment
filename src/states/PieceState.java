@@ -1,3 +1,5 @@
+package states;
+
 public interface PieceState {
     public boolean isAlive();
     public void changeState();

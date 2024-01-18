@@ -1,13 +1,17 @@
-public class StunnedState implements PieceState {
+package states;
+
+import pieces.Piece;
+
+public class DeadState implements PieceState {
     private Piece context;
 
-    public StunnedState(Piece context) {
+    public DeadState(Piece context) {
         this.context = context;
     }
 
     @Override
     public boolean isAlive() {
-        return true;
+        return false;
     };
 
     @Override
