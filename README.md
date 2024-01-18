@@ -42,7 +42,7 @@ The program should run in a java console. We decided on making a chess program, 
             - AOE attack that hits in a 2 square radius around the king and deals large damage
             - Gives the king the Stunned state for the next turn
 
-Before we go to the actual use of the program via console commands, we'll have to explain how the coordinates work in our chess app. Coordinate 0,0 references the bottom left square on the board. Coordinate 7,7 references the upper right square on the board.
+Before we go to the actual use of the program via console commands, we'll have to explain how the coordinates work in our chess app. Coordinate 0,0 references the bottom left square on the board. Coordinate 7,7 references the upper right square on the board. The coordinates should be: "x,y".
 
 The possible commands to put in the console are:
 
@@ -53,17 +53,19 @@ The possible commands to put in the console are:
     containing the piece to be attacked}
 
     For Pawn, Rook, Bishop, Knight:
-    Special action {coordinates of square contain the piece doing the special move} {coordinates 
+    Special-action {coordinates of square contain the piece doing the special move} {coordinates 
     of square containing the piece to be affected by the special action}
 
     For Queen, King:
-    Special action {coordinates of square contain the piece doing the special move}
+    Special-action {coordinates of square contain the piece doing the special move}
 
     Restore {turn number}
 
-    Undo turn
+    Undo-turn
 
     End
+
+Example of using coordinates: Move 0,1 0,3. This will move the piece on the square with coordinates x=0 and y=1 to the square with coordinates x=0 and y=3.
 
 The command "Restore", restores the game to the beginning of a turn that is signified with the given turn number. When starting the game, the game starts with turn 0. When the white player has ended his turn, before the black player makes any actions the new state of the board will be saved as turn 1. You can use "Undo turn" to go back to the start of the current turn. If you're in turn 1 for example and black made his moves but regrets them, you can use this command to go back to the beginning of turn 1 where black hasn't made any moves yet.
 
