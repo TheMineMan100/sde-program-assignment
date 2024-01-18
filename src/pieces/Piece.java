@@ -19,6 +19,8 @@ public interface Piece {
 
     public void setCanMove(Boolean canMove);
 
+    public void setCanAttack(Boolean canAttack);
+
     public void multiplyDamage(double multiplier);
 
     public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);

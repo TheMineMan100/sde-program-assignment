@@ -18,6 +18,8 @@ public class PawnPiece implements Piece {
 
     private Boolean canMove;
 
+    private Boolean canAttack;
+
     @Override
     public void setAllegiance(Allegiance allegiance) {
         this.allegiance = allegiance;
@@ -54,6 +56,11 @@ public class PawnPiece implements Piece {
     }
 
     @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.canAttack = canAttack;
+    }
+
+    @Override
     public void multiplyDamage(double multiplier) {
         this.damage *= multiplier;
     }
@@ -67,8 +74,10 @@ public class PawnPiece implements Piece {
 
     @Override
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
-        this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
-    };
+        if (canAttack) {
+            this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
+        }
+    }
 
     @Override
     public void specialAction() {

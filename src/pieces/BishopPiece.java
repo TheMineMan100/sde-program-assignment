@@ -17,6 +17,8 @@ public class BishopPiece implements Piece {
 
     private Boolean canMove;
 
+    private Boolean canAttack;
+
     @Override
     public void setAllegiance(Allegiance allegiance) {
         this.allegiance = allegiance;
@@ -53,12 +55,17 @@ public class BishopPiece implements Piece {
     }
 
     @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.canAttack = canAttack;
+    }
+
+    @Override
     public void multiplyDamage(double multiplier) {
         this.damage *= multiplier;
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetweeno) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
         if (canMove) {
             this.allegiance.moveBishop(currentSquare, squareToMoveTo, squaresInBetween);
         }
@@ -66,8 +73,10 @@ public class BishopPiece implements Piece {
 
     @Override
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
-        this.allegiance.attackWithBishop(currentSquare, squareToAttack, squaresInBetween);
-    };
+        if (canAttack) {
+            this.allegiance.attackWithBishop(currentSquare, squareToAttack, squaresInBetween);
+        }
+    }
 
     @Override
     public void specialAction() {

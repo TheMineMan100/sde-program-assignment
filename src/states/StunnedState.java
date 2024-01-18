@@ -16,6 +16,7 @@ public class StunnedState implements PieceState {
     @Override
     public void changeState(PieceState newState) {
         this.context.setCanMove(true);
+        this.context.setCanAttack(true);
 
         context.changeState(newState);
     }
@@ -30,6 +31,7 @@ public class StunnedState implements PieceState {
         this.updateDuration();
 
         this.context.setCanMove(false);
+        this.context.setCanAttack(false);
 
         if (this.durationLeft <= 0) {
             this.changeState(new HealthyState(context));
