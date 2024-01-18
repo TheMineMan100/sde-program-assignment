@@ -21,6 +21,8 @@ public class PoisonedState implements PieceState {
 
     @Override
     public void changeState(PieceState newState) {
+        this.context.multiplyDamage(1/poisonWeaknessMultiplier);
+
         context.changeState(newState);
     }
 
