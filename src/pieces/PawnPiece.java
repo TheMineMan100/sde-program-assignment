@@ -24,6 +24,11 @@ public class PawnPiece implements Piece {
     }
 
     @Override
+    public Allegiance getAllegiance() {
+        return this.allegiance;
+    }
+
+    @Override
     public void changeState(PieceState state) {
         this.state = state;
     }
@@ -54,16 +59,16 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
         if (canMove) {
-            this.allegiance.movePawn(currentSquare, squareToMoveTo);
+            this.allegiance.movePawn(currentSquare, squareToMoveTo, squaresInBetween);
         }
     }
 
     @Override
-    public void attack() {
-
-    }
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
+    };
 
     @Override
     public void specialAction() {

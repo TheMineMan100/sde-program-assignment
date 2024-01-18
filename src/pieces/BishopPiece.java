@@ -23,6 +23,11 @@ public class BishopPiece implements Piece {
     }
 
     @Override
+    public Allegiance getAllegiance() {
+        return this.allegiance;
+    }
+
+    @Override
     public void changeState(PieceState state) {
         this.state = state;
     }
@@ -53,16 +58,16 @@ public class BishopPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetweeno) {
         if (canMove) {
-            this.allegiance.moveBishop(currentSquare, squareToMoveTo);
+            this.allegiance.moveBishop(currentSquare, squareToMoveTo, squaresInBetween);
         }
     }
 
     @Override
-    public void attack() {
-
-    }
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithBishop(currentSquare, squareToAttack, squaresInBetween);
+    };
 
     @Override
     public void specialAction() {
