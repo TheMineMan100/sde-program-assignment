@@ -83,21 +83,21 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[][] squares) {
         if (canMove) {
-            this.allegiance.movePawn(currentSquare, squareToMoveTo, squaresInBetween);
+            this.allegiance.movePawn(currentSquare, squareToMoveTo, squares);
         }
     }
 
     @Override
-    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void attack(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (canAttack) {
-            this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
+            this.allegiance.attackWithPawn(currentSquare, squareToAttack, squares);
         }
     }
 
     @Override
-    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[][] squares) {
 
     }
 

@@ -1,4 +1,5 @@
 import board.Board;
+import board.HistoryCaretaker;
 import board.Square;
 import pieces.Piece;
 
@@ -6,6 +7,40 @@ public class Main {
     public static void main(String[] args) {
         ConsoleReader reader = new ConsoleReader();
         ConsoleWriter writer = new ConsoleWriter();
+
+        Board board = new Board();
+
+        board.initialiseBoard();
+
+        board.printBoard();
+
+        HistoryCaretaker historyCareTaker = new HistoryCaretaker(board);
+
+        boolean whitePlayerTurn = true;
+        boolean hasMoved = false;
+        boolean hasAttacked = false;
+
+        gameLoop(
+            reader,
+            writer,
+            board,
+            historyCareTaker,
+            whitePlayerTurn,
+            hasMoved,
+            hasAttacked
+        );
+    }
+
+    public static void gameLoop(
+            ConsoleReader reader,
+            ConsoleWriter writer,
+            Board board,
+            HistoryCaretaker historyCareTaker,
+            boolean whitePlayerTurn,
+            boolean hasMoved,
+            boolean hasAttacked
+    ) {
+        boolean stopGame = false;
 
         String incomingCommand = reader.readLine();
         String[] parts = incomingCommand.split(" ");
@@ -50,28 +85,36 @@ public class Main {
         } else if (parts[0].equals("Undo-turn")) {
 
         } else if (parts[0].equals("End")) {
+            if (hasMoved) {
+                if (whitePlayerTurn) {
+                    whitePlayerTurn = false;
+                    hasMoved = false;
+                    hasAttacked = false;
+                } else {
+                    whitePlayerTurn = true;
+                    hasMoved = false;
+                    hasAttacked = false;
+                }
 
+            } else {
+                writer.writeLine("You HAVE to move");
+            }
+        } else if (parts[0].equals("Stop")) {
+            stopGame = true;
         } else {
             writer.writeLine("Command not recognized");
         }
 
-        writer.writeLine("Hello world!");
-        System.out.println("Hello world!");
-
-        Board board = new Board();
-
-        board.initialiseBoard();
-
-        board.printBoard();
-
-        if (reader.readLine().equals("move")) {
-            Square someSquare = board.getSquare(1, 1);
-            Square newSquare = board.getSquare(1, 2);
-            Piece piece = someSquare.getPiece();
-
-            piece.move(someSquare, newSquare, null);
-
-            board.printBoard();
+        if (!stopGame) {
+            gameLoop(
+                    reader,
+                    writer,
+                    board,
+                    historyCareTaker,
+                    whitePlayerTurn,
+                    hasMoved,
+                    hasAttacked
+            );
         }
     }
 }

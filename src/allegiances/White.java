@@ -4,7 +4,7 @@ import board.Square;
 import pieces.Piece;
 
 public class White implements Allegiance {
-    public void movePawn(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+    public void movePawn(Square currentSquare, Square squareToMoveTo, Square[][] squares) {
         if (
             squareToMoveTo.getX() - currentSquare.getX() == 0 &&
             squareToMoveTo.getY() - currentSquare.getY() == 1 &&
@@ -15,7 +15,7 @@ public class White implements Allegiance {
         }
     };
 
-    public void attackWithPawn(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void attackWithPawn(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (
             ((squareToAttack.getX() - currentSquare.getX() == -1 &&
                 squareToAttack.getY() - currentSquare.getY() == 1) ||

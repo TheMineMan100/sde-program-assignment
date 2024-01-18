@@ -82,23 +82,23 @@ public class KnightPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[][] squares) {
         if (canMove) {
-            this.allegiance.moveKnight(currentSquare, squareToMoveTo, squaresInBetween);
+            this.allegiance.moveKnight(currentSquare, squareToMoveTo, squares);
         }
     }
 
     @Override
-    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void attack(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (canAttack) {
-            this.allegiance.attackWithKnight(currentSquare, squareToAttack, squaresInBetween);
+            this.allegiance.attackWithKnight(currentSquare, squareToAttack, squares);
         }
     }
 
     @Override
-    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (canAttack) {
-            this.allegiance.specialActionWithKnight(currentSquare, squareToAttack, squaresInBetween);
+            this.allegiance.specialActionWithKnight(currentSquare, squareToAttack, squares);
         }
     }
 

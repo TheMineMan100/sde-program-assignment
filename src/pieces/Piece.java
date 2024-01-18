@@ -29,11 +29,11 @@ public interface Piece {
 
     public void multiplyDamage(double multiplier);
 
-    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);
+    public void move(Square currentSquare, Square squareToMoveTo, Square[][] squares);
 
-    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
+    public void attack(Square currentSquare, Square squareToAttack, Square[][] squares);
 
-    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[][] squares);
 
     public void takeDamage(double damage);
 

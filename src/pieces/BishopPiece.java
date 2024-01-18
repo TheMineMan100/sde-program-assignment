@@ -84,23 +84,23 @@ public class BishopPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+    public void move(Square currentSquare, Square squareToMoveTo, Square[][] squares) {
         if (canMove) {
-            this.allegiance.moveBishop(currentSquare, squareToMoveTo, squaresInBetween);
+            this.allegiance.moveBishop(currentSquare, squareToMoveTo, squares);
         }
     }
 
     @Override
-    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void attack(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (canAttack) {
-            this.allegiance.attackWithBishop(currentSquare, squareToAttack, squaresInBetween);
+            this.allegiance.attackWithBishop(currentSquare, squareToAttack, squares);
         }
     }
 
     @Override
-    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[][] squares) {
         if (canAttack) {
-            this.allegiance.specialActionWithBishop(currentSquare, squareToAttack, squaresInBetween);
+            this.allegiance.specialActionWithBishop(currentSquare, squareToAttack, squares);
         }
     }
 
