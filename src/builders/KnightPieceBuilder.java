@@ -1,6 +1,8 @@
 package builders;
 
+import allegiances.Allegiance;
 import pieces.KnightPiece;
+import states.PieceState;
 
 public class KnightPieceBuilder implements PieceBuilder {
     private KnightPiece knight = new KnightPiece();
@@ -11,8 +13,13 @@ public class KnightPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.knight.setAllegiance(isWhite);
+    public void setAllegiance(Allegiance allegiance) {
+        this.knight.setAllegiance(allegiance);
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.knight.setState(state);
     }
 
     @Override
@@ -28,5 +35,11 @@ public class KnightPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(int damage) {
         this.knight.setDamage(damage);
+    }
+
+    public KnightPiece getResult() {
+        KnightPiece result = this.knight;
+        this.reset();
+        return result;
     }
 }

@@ -1,6 +1,8 @@
 package builders;
 
+import allegiances.Allegiance;
 import pieces.PawnPiece;
+import states.PieceState;
 
 public class PawnPieceBuilder implements PieceBuilder {
     private PawnPiece pawn = new PawnPiece();
@@ -11,8 +13,13 @@ public class PawnPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.pawn.setAllegiance(isWhite);
+    public void setAllegiance(Allegiance allegiance) {
+        this.pawn.setAllegiance(allegiance);
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.pawn.setState(state);
     }
 
     @Override
@@ -28,5 +35,11 @@ public class PawnPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(int damage) {
         this.pawn.setDamage(damage);
+    }
+
+    public PawnPiece getResult() {
+        PawnPiece result = this.pawn;
+        this.reset();
+        return result;
     }
 }

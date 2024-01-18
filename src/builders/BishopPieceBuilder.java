@@ -1,6 +1,8 @@
 package builders;
 
+import allegiances.Allegiance;
 import pieces.BishopPiece;
+import states.PieceState;
 
 public class BishopPieceBuilder implements PieceBuilder {
     private BishopPiece bishop = new BishopPiece();
@@ -11,8 +13,13 @@ public class BishopPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.bishop.setAllegiance(isWhite);
+    public void setAllegiance(Allegiance allegiance) {
+        this.bishop.setAllegiance(allegiance);
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.bishop.setState(state);
     }
 
     @Override
@@ -28,5 +35,11 @@ public class BishopPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(int damage) {
         this.bishop.setDamage(damage);
+    }
+
+    public BishopPiece getResult() {
+        BishopPiece result = this.bishop;
+        this.reset();
+        return result;
     }
 }
