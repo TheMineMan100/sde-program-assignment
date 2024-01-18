@@ -26,6 +26,8 @@ public class RookPieceFactory implements PieceFactory<RookPieceBuilder> {
         this.builder.setHealth(3);
         this.builder.setArmor(3);
         this.builder.setDamage(2);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♖");
 
         RookPiece rook = this.builder.getResult();
@@ -41,6 +43,8 @@ public class RookPieceFactory implements PieceFactory<RookPieceBuilder> {
         this.builder.setHealth(3);
         this.builder.setArmor(3);
         this.builder.setDamage(2);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♜");
 
         RookPiece rook = this.builder.getResult();

@@ -17,6 +17,10 @@ public interface PieceBuilder {
 
     void setDamage(double damage);
 
+    void setCanMove(Boolean canMove);
+
+    void setCanAttack(Boolean canAttack);
+
     void setSymbol(String symbol);
 
     Piece getResult();

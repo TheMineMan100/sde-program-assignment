@@ -26,6 +26,8 @@ public class BishopPieceFactory implements PieceFactory<BishopPieceBuilder> {
         this.builder.setHealth(3);
         this.builder.setArmor(0);
         this.builder.setDamage(2);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♗");
 
         BishopPiece bishop = this.builder.getResult();
@@ -41,6 +43,8 @@ public class BishopPieceFactory implements PieceFactory<BishopPieceBuilder> {
         this.builder.setHealth(3);
         this.builder.setArmor(0);
         this.builder.setDamage(2);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♝");
 
         BishopPiece bishop = this.builder.getResult();

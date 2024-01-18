@@ -26,6 +26,8 @@ public class PawnPieceFactory implements PieceFactory<PawnPieceBuilder> {
         this.builder.setHealth(1);
         this.builder.setArmor(0);
         this.builder.setDamage(1);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♙");
 
         PawnPiece pawn = this.builder.getResult();
@@ -41,6 +43,8 @@ public class PawnPieceFactory implements PieceFactory<PawnPieceBuilder> {
         this.builder.setHealth(1);
         this.builder.setArmor(0);
         this.builder.setDamage(1);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♟");
 
         PawnPiece pawn = this.builder.getResult();

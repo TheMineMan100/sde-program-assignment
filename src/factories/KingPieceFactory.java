@@ -26,6 +26,8 @@ public class KingPieceFactory implements PieceFactory<KingPieceBuilder> {
         this.builder.setHealth(5);
         this.builder.setArmor(2);
         this.builder.setDamage(4);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♔");
 
         KingPiece king = this.builder.getResult();
@@ -41,6 +43,8 @@ public class KingPieceFactory implements PieceFactory<KingPieceBuilder> {
         this.builder.setHealth(5);
         this.builder.setArmor(2);
         this.builder.setDamage(3);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♚");
 
         KingPiece king = this.builder.getResult();

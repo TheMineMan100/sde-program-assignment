@@ -25,6 +25,8 @@ public class Board {
     private KingPieceFactory kingFactory;
 
     public Board() {
+        this.squares = new Square[8][8];
+
         this.whiteAllegiance = new White();
         this.blackAllegiance = new Black();
 
@@ -37,6 +39,8 @@ public class Board {
     }
 
     public void initialiseBoard() {
+        System.out.println("Starting initialisation...");
+
         // Setup white pieces
         this.squares[0][0] = new Square(0, 0, rookFactory.createWhitePiece());
         this.squares[1][0] = new Square(1, 0, knightFactory.createWhitePiece());
@@ -79,5 +83,35 @@ public class Board {
                 this.squares[j][i] = new Square(j, i, null);
             }
         }
+
+        System.out.println("Initialisation complete!");
+    }
+
+    public Square getSquare(int posX, int posY) {
+        return squares[posX][posY];
+    }
+
+    public void printBoard() {
+        String[] boardToPrint = new String[8];
+
+        for (int i = 7; i > -1; i--) {
+            String lineToPrint = "";
+
+            for (int j = 7; j > -1; j--) {
+                Piece piece = this.squares[j][i].getPiece();
+                String pieceSymbol = "";
+                if (piece != null) {
+                    pieceSymbol = this.squares[j][i].getPiece().getSymbol();
+                }
+                if (piece != null && pieceSymbol != null && ! pieceSymbol.isEmpty()) {
+                    lineToPrint += pieceSymbol;
+                } else {
+                    lineToPrint += "⛋";
+                }
+            }
+            boardToPrint[i] = lineToPrint;
+            System.out.println(boardToPrint[i]);
+        }
+        System.out.println("\n");
     }
 }

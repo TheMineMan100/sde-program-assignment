@@ -38,6 +38,16 @@ public class QueenPieceBuilder implements PieceBuilder {
     }
 
     @Override
+    public void setCanMove(Boolean canMove) {
+        this.queen.setCanMove(canMove);
+    }
+
+    @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.queen.setCanAttack(canAttack);
+    }
+
+    @Override
     public void setSymbol(String symbol) {
         this.queen.setSymbol(symbol);
     }

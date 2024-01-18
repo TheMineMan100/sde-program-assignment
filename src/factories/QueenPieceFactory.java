@@ -26,6 +26,8 @@ public class QueenPieceFactory implements PieceFactory<QueenPieceBuilder> {
         this.builder.setHealth(4);
         this.builder.setArmor(3);
         this.builder.setDamage(6);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♕");
 
         QueenPiece queen = this.builder.getResult();
@@ -41,6 +43,8 @@ public class QueenPieceFactory implements PieceFactory<QueenPieceBuilder> {
         this.builder.setHealth(4);
         this.builder.setArmor(3);
         this.builder.setDamage(6);
+        this.builder.setCanMove(true);
+        this.builder.setCanAttack(true);
         this.builder.setSymbol("♛");
 
         QueenPiece queen = this.builder.getResult();

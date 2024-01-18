@@ -38,6 +38,16 @@ public class PawnPieceBuilder implements PieceBuilder {
     }
 
     @Override
+    public void setCanMove(Boolean canMove) {
+        this.pawn.setCanMove(canMove);
+    }
+
+    @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.pawn.setCanAttack(canAttack);
+    }
+
+    @Override
     public void setSymbol(String symbol) {
         this.pawn.setSymbol(symbol);
     }
