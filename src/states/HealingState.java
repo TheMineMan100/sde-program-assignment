@@ -4,7 +4,7 @@ import board.Square;
 import pieces.Piece;
 
 public class HealingState implements PieceState {
-    private Piece context;
+    private final Piece context;
 
     private int durationLeft;
 
@@ -17,8 +17,8 @@ public class HealingState implements PieceState {
     }
 
     @Override
-    public void changeState() {
-        context.changeState(new HealthyState(context));
+    public void changeState(PieceState newState) {
+        context.changeState(newState);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class HealingState implements PieceState {
         this.context.gainHealth(healAmount);
 
         if (this.durationLeft <= 0) {
-            this.changeState();
+            this.changeState(new HealthyState(context));
         }
     }
 }

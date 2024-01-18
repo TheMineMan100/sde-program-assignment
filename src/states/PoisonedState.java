@@ -20,8 +20,8 @@ public class PoisonedState implements PieceState {
     }
 
     @Override
-    public void changeState() {
-        context.changeState(new HealthyState(context));
+    public void changeState(PieceState newState) {
+        context.changeState(newState);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PoisonedState implements PieceState {
         }
 
         if (this.durationLeft <= 0) {
-            this.changeState();
+            this.changeState(new HealthyState(context));
         }
     }
 }

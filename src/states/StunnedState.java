@@ -14,10 +14,10 @@ public class StunnedState implements PieceState {
     }
 
     @Override
-    public void changeState() {
+    public void changeState(PieceState newState) {
         this.context.setCanMove(true);
 
-        context.changeState(new HealthyState(context));
+        context.changeState(newState);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class StunnedState implements PieceState {
         this.context.setCanMove(false);
 
         if (this.durationLeft <= 0) {
-            this.changeState();
+            this.changeState(new HealthyState(context));
         }
     }
 }

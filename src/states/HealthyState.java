@@ -4,15 +4,15 @@ import board.Square;
 import pieces.Piece;
 
 public class HealthyState implements PieceState {
-    private Piece context;
+    private final Piece context;
 
     public HealthyState(Piece context) {
         this.context = context;
     }
 
     @Override
-    public void changeState() {
-
+    public void changeState(PieceState newState) {
+        this.context.changeState(newState);
     }
 
     @Override
