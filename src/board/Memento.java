@@ -10,6 +10,10 @@ public class Memento {
         this.squares = squares;
     }
 
+    public Square getSquare(int x, int y) {
+        return this.squares[x][y];
+    }
+
     public void restore() {
         this.board.setSquares(this.squares);
     }

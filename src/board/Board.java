@@ -5,6 +5,9 @@ import allegiances.White;
 import factories.*;
 import pieces.Piece;
 
+import java.util.Arrays;
+import org.apache.commons.lang3.SerializationUtils;
+
 public class Board {
     private Square[][] squares;
 
@@ -125,6 +128,15 @@ public class Board {
     }
 
     public Memento save() {
-        return new Memento(this, this.squares);
+        Square[][] squaresCopy = Arrays.copyOf(this.squares, this.squares.length);
+
+        Square[][] testCopy = SerializationUtils.clone(this.squares);
+
+
+        Square[][] testCopy2 = Arrays.copyOf(squaresCopy, squaresCopy.length);
+        System.out.println(testCopy2[0][1].getPiece());
+        squaresCopy[0][1] = new Square(0, 1, null);
+        System.out.println(testCopy2[0][1].getPiece());
+        return new Memento(this, squaresCopy);
     }
 }

@@ -12,6 +12,10 @@ public class HistoryCaretaker {
         this.history = new Memento[0];
     }
 
+    public void getSquareFromFirstVersion(int x, int y) {
+        System.out.println(this.history[0].getSquare(x, y).getPiece());
+    }
+
     public void saveMemento() {
         this.history = Arrays.copyOf(this.history, this.history.length + 1);
         this.history[this.history.length - 1] = this.board.save();

@@ -3,6 +3,8 @@ import board.HistoryCaretaker;
 import board.Square;
 import pieces.Piece;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         ConsoleReader reader = new ConsoleReader();
@@ -21,6 +23,9 @@ public class Main {
         boolean whitePlayerTurn = true;
         boolean hasMoved = false;
         boolean hasAttacked = false;
+
+        historyCareTaker.saveMemento();
+        historyCareTaker.getSquareFromFirstVersion(0, 1);
 
         gameLoop(
             reader,
@@ -43,6 +48,8 @@ public class Main {
             boolean hasAttacked
     ) {
         boolean stopGame = false;
+
+        historyCareTaker.getSquareFromFirstVersion(0, 1);
 
         String incomingCommand = reader.readLine();
         String[] parts = incomingCommand.split(" ");
@@ -133,7 +140,12 @@ public class Main {
             }
         } else if (parts[0].equals("Undo-turn")) {
             if(parts.length == 1) {
+                System.out.println(board.getSquare(0, 2).getPiece());
+                System.out.println(board.getSquare(0, 1).getPiece());
+
                 historyCareTaker.restoreLastMemento();
+                hasMoved = false;
+                hasAttacked = false;
 
                 board.printBoard();
             } else {
@@ -149,10 +161,12 @@ public class Main {
                     whitePlayerTurn = false;
                     hasMoved = false;
                     hasAttacked = false;
+                    writer.writeLine("The black player can now take a turn.");
                 } else {
                     whitePlayerTurn = true;
                     hasMoved = false;
                     hasAttacked = false;
+                    writer.writeLine("The white player can now take a turn.");
                 }
                 historyCareTaker.saveMemento();
             } else {
