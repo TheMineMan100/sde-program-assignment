@@ -21,6 +21,11 @@ public class KingPiece implements Piece {
     }
 
     @Override
+    public Allegiance getAllegiance() {
+        return this.allegiance;
+    }
+
+    @Override
     public void setState(PieceState state) {
         this.state = state;
     }
@@ -41,13 +46,13 @@ public class KingPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
-        this.allegiance.moveKing(currentSquare, squareToMoveTo);
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+        this.allegiance.moveKing(currentSquare, squareToMoveTo, squaresInBetween);
     }
 
     @Override
-    public void attack() {
-
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithKing(currentSquare, squareToAttack, squaresInBetween);
     };
 
     @Override
