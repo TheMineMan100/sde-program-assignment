@@ -16,6 +16,8 @@ public class PawnPiece implements Piece {
 
     private double damage;
 
+    private String symbol;
+
     private Boolean canMove;
 
     private Boolean canAttack;
@@ -31,12 +33,17 @@ public class PawnPiece implements Piece {
     }
 
     @Override
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    @Override
     public void changeState(PieceState state) {
         this.state = state;
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
@@ -46,7 +53,7 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 
@@ -58,6 +65,11 @@ public class PawnPiece implements Piece {
     @Override
     public void setCanAttack(Boolean canAttack) {
         this.canAttack = canAttack;
+    }
+
+    @Override
+    public String getSymbol() {
+        return this.symbol;
     }
 
     @Override

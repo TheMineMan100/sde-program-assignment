@@ -19,11 +19,11 @@ public class RookPieceBuilder implements PieceBuilder {
 
     @Override
     public void setState(PieceState state) {
-        this.rook.setState(state);
+        this.rook.changeState(state);
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.rook.setHealth(health);
     }
 
@@ -33,8 +33,23 @@ public class RookPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.rook.setDamage(damage);
+    }
+
+    @Override
+    public void setCanMove(Boolean canMove) {
+        this.rook.setCanMove(canMove);
+    }
+
+    @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.rook.setCanAttack(canAttack);
+    }
+
+    @Override
+    public void setSymbol(String symbol) {
+        this.rook.setSymbol(symbol);
     }
 
     public RookPiece getResult() {

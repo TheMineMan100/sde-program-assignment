@@ -19,11 +19,11 @@ public class QueenPieceBuilder implements PieceBuilder {
 
     @Override
     public void setState(PieceState state) {
-        this.queen.setState(state);
+        this.queen.changeState(state);
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.queen.setHealth(health);
     }
 
@@ -33,8 +33,23 @@ public class QueenPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.queen.setDamage(damage);
+    }
+
+    @Override
+    public void setCanMove(Boolean canMove) {
+        this.queen.setCanMove(canMove);
+    }
+
+    @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.queen.setCanAttack(canAttack);
+    }
+
+    @Override
+    public void setSymbol(String symbol) {
+        this.queen.setSymbol(symbol);
     }
 
     public QueenPiece getResult() {
