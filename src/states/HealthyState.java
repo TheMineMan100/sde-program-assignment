@@ -12,15 +12,15 @@ public class HealthyState implements PieceState {
     @Override
     public void changeState() {
 
-    };
+    }
 
     @Override
     public void updateDuration() {
 
-    };
+    }
 
     @Override
     public void applyEffect() {
 
-    };
+    }
 }

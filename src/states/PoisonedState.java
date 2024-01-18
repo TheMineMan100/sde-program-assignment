@@ -21,12 +21,12 @@ public class PoisonedState implements PieceState {
     @Override
     public void changeState() {
         context.changeState(new HealthyState(context));
-    };
+    }
 
     @Override
     public void updateDuration() {
         this.durationLeft--;
-    };
+    }
 
     @Override
     public void applyEffect() {
@@ -39,5 +39,5 @@ public class PoisonedState implements PieceState {
         if (this.durationLeft <= 0) {
             this.changeState();
         }
-    };
+    }
 }

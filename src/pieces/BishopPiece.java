@@ -53,7 +53,7 @@ public class BishopPiece implements Piece {
     @Override
     public void attack() {
 
-    };
+    }
 
     @Override
     public void specialAction() {

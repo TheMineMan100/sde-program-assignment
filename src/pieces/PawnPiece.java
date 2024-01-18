@@ -54,7 +54,7 @@ public class PawnPiece implements Piece {
     @Override
     public void attack() {
 
-    };
+    }
 
     @Override
     public void specialAction() {
@@ -70,6 +70,4 @@ public class PawnPiece implements Piece {
     public void gainHealth(double health) {
         this.health += health;
     }
-
-    ;
 }

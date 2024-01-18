@@ -18,12 +18,12 @@ public class HealingState implements PieceState {
     @Override
     public void changeState() {
         context.changeState(new HealthyState(context));
-    };
+    }
 
     @Override
     public void updateDuration() {
         this.durationLeft--;
-    };
+    }
 
     @Override
     public void applyEffect() {
@@ -34,5 +34,5 @@ public class HealingState implements PieceState {
         if (this.durationLeft <= 0) {
             this.changeState();
         }
-    };
+    }
 }

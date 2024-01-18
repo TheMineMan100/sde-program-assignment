@@ -53,7 +53,7 @@ public class RookPiece implements Piece {
     @Override
     public void attack() {
 
-    };
+    }
 
     @Override
     public void specialAction() {
@@ -69,6 +69,4 @@ public class RookPiece implements Piece {
     public void gainHealth(double health) {
         this.health += health;
     }
-
-    ;
 }
