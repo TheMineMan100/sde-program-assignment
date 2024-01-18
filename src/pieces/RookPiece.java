@@ -1,9 +1,13 @@
 package pieces;
 
+import allegiances.Allegiance;
 import board.Square;
+import states.PieceState;
 
 public class RookPiece implements Piece {
-    private Boolean isWhite;
+    private Allegiance allegiance;
+
+    private PieceState state;
 
     private int health;
 
@@ -12,8 +16,13 @@ public class RookPiece implements Piece {
     private int damage;
 
     @Override
-    public void setAllegiance(Boolean isWhite) {
-        this.isWhite = isWhite;
+    public void setAllegiance(Allegiance allegiance) {
+        this.allegiance = allegiance;
+    }
+
+    @Override
+    public void setState(PieceState state) {
+        this.state = state;
     }
 
     @Override
@@ -31,28 +40,25 @@ public class RookPiece implements Piece {
         this.damage = damage;
     }
 
-    private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
-        if (
-            (
-                (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
-                    squareToMoveTo.getY() - currentSquare.getY() != 0) ||
-                (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
-                    squareToMoveTo.getY() - currentSquare.getY() == 0)
-            ) &&
-            squareToMoveTo.getPiece() == null
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
+//        if (
+//            (
+//                (squareToMoveTo.getX() - currentSquare.getX() == 0 &&
+//                    squareToMoveTo.getY() - currentSquare.getY() != 0) ||
+//                (squareToMoveTo.getX() - currentSquare.getX() != 0 &&
+//                    squareToMoveTo.getY() - currentSquare.getY() == 0)
+//            ) &&
+//            squareToMoveTo.getPiece() == null
+//        ) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     @Override
     public void move(Square currentSquare, Square squareToMoveTo) {
-        if (canMoveToSquare(currentSquare, squareToMoveTo)) {
-            squareToMoveTo.setPiece(this);
-            currentSquare.setPiece(null);
-        }
+        this.allegiance.moveRook(currentSquare, squareToMoveTo);
     }
 
     @Override
