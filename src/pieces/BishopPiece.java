@@ -40,21 +40,6 @@ public class BishopPiece implements Piece {
         this.damage = damage;
     }
 
-//    private boolean canMoveToSquare(Square currentSquare, Square squareToMoveTo) {
-//        if (
-//            (
-//                squareToMoveTo.getX() - currentSquare.getX() != 0 &&
-//                squareToMoveTo.getY() - currentSquare.getY() != 0 &&
-//                squareToMoveTo.getX() - currentSquare.getX() == squareToMoveTo.getY() - currentSquare.getY()
-//            ) &&
-//            squareToMoveTo.getPiece() == null
-//        ) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
     @Override
     public void move(Square currentSquare, Square squareToMoveTo) {
         this.allegiance.moveBishop(currentSquare, squareToMoveTo);
