@@ -7,6 +7,8 @@ import states.PieceState;
 public interface Piece {
     public void setAllegiance(Allegiance allegiance);
 
+    public Allegiance getAllegiance();
+
     public void setState(PieceState state);
 
     public void setHealth(int health);

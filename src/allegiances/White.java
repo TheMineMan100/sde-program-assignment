@@ -21,7 +21,8 @@ public class White implements Allegiance {
                 squareToAttack.getY() - currentSquare.getY() == 1) ||
             (squareToAttack.getX() - currentSquare.getX() == 1 &&
                 squareToAttack.getY() - currentSquare.getY() == 1)) &&
-            squareToAttack.getPiece() != null
+            squareToAttack.getPiece() != null &&
+            squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
 
         }

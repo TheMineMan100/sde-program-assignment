@@ -21,6 +21,11 @@ public class QueenPiece implements Piece {
     }
 
     @Override
+    public Allegiance getAllegiance() {
+        return this.allegiance;
+    }
+
+    @Override
     public void setState(PieceState state) {
         this.state = state;
     }

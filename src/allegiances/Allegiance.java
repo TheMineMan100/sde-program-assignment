@@ -54,7 +54,8 @@ public interface Allegiance {
                 (squareToAttack.getX() - currentSquare.getX() == -2 &&
                     squareToAttack.getY() - currentSquare.getY() == -1)
             ) &&
-            squareToAttack.getPiece() != null
+            squareToAttack.getPiece() != null &&
+            squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
 
         }
@@ -90,7 +91,8 @@ public interface Allegiance {
                     squareToAttack.getY() - currentSquare.getY() != 0 &&
                     squareToAttack.getX() - currentSquare.getX() == squareToAttack.getY() - currentSquare.getY()
                 ) &&
-                squareToAttack.getPiece() != null
+                squareToAttack.getPiece() != null &&
+                squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
@@ -137,7 +139,8 @@ public interface Allegiance {
                     (squareToAttack.getX() - currentSquare.getX() != 0 &&
                         squareToAttack.getY() - currentSquare.getY() == 0)
                 ) &&
-                squareToAttack.getPiece() != null
+                squareToAttack.getPiece() != null &&
+                squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
@@ -194,7 +197,8 @@ public interface Allegiance {
                     squareToAttack.getX() - currentSquare.getX() == squareToAttack.getY() - currentSquare.getY()
                 )
             ) &&
-            squareToAttack.getPiece() != null
+            squareToAttack.getPiece() != null &&
+            squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
@@ -265,7 +269,8 @@ public interface Allegiance {
                     (squareToAttack.getX() - currentSquare.getX() == 1 &&
                         squareToAttack.getY() - currentSquare.getY() == 1)
                 ) &&
-                squareToAttack.getPiece() != null
+                squareToAttack.getPiece() != null &&
+                squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
