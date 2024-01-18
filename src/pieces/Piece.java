@@ -9,7 +9,7 @@ public interface Piece {
 
     public Allegiance getAllegiance();
 
-    public void setState(PieceState state);
+    public void changeState(PieceState state);
 
     public void setHealth(int health);
 
@@ -17,9 +17,19 @@ public interface Piece {
 
     public void setDamage(int damage);
 
+    public void setCanMove(Boolean canMove);
+
+    public void setCanAttack(Boolean canAttack);
+
+    public void multiplyDamage(double multiplier);
+
     public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);
 
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
 
     public void specialAction();
+
+    public void takeDamage(double damage);
+
+    public void gainHealth(double health);
 }

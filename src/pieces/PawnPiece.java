@@ -10,11 +10,15 @@ public class PawnPiece implements Piece {
 
     private PieceState state;
 
-    private int health;
+    private double health;
 
     private int armor;
 
-    private int damage;
+    private double damage;
+
+    private Boolean canMove;
+
+    private Boolean canAttack;
 
     @Override
     public void setAllegiance(Allegiance allegiance) {
@@ -27,7 +31,7 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void setState(PieceState state) {
+    public void changeState(PieceState state) {
         this.state = state;
     }
 
@@ -47,17 +51,46 @@ public class PawnPiece implements Piece {
     }
 
     @Override
+    public void setCanMove(Boolean canMove) {
+        this.canMove = canMove;
+    }
+
+    @Override
+    public void setCanAttack(Boolean canAttack) {
+        this.canAttack = canAttack;
+    }
+
+    @Override
+    public void multiplyDamage(double multiplier) {
+        this.damage *= multiplier;
+    }
+
+    @Override
     public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
-        this.allegiance.movePawn(currentSquare, squareToMoveTo, squaresInBetween);
+        if (canMove) {
+            this.allegiance.movePawn(currentSquare, squareToMoveTo, squaresInBetween);
+        }
     }
 
     @Override
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
-        this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
-    };
+        if (canAttack) {
+            this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
+        }
+    }
 
     @Override
     public void specialAction() {
 
-    };
+    }
+
+    @Override
+    public void takeDamage(double damage) {
+        this.health -= damage;
+    }
+
+    @Override
+    public void gainHealth(double health) {
+        this.health += health;
+    }
 }

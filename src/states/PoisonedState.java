@@ -1,31 +1,46 @@
 package states;
 
+import board.Square;
 import pieces.Piece;
 
 public class PoisonedState implements PieceState {
-    private Piece context;
+    private final Piece context;
 
-    public PoisonedState(Piece context) {
+    private int durationLeft;
+
+    private final double poisonWeaknessMultiplier;
+
+    private final Boolean poisonHasBeenApplied;
+
+    public PoisonedState(Piece context, int duration) {
         this.context = context;
+        this.durationLeft = duration;
+        this.poisonWeaknessMultiplier = 0.5;
+        this.poisonHasBeenApplied = false;
     }
 
     @Override
-    public boolean isAlive() {
-        return true;
-    };
+    public void changeState(PieceState newState) {
+        this.context.multiplyDamage(1/poisonWeaknessMultiplier);
 
-    @Override
-    public void changeState() {
-
-    };
+        context.changeState(newState);
+    }
 
     @Override
     public void updateDuration() {
-
-    };
+        this.durationLeft--;
+    }
 
     @Override
     public void applyEffect() {
+        this.updateDuration();
 
-    };
+        if (! poisonHasBeenApplied) {
+            this.context.multiplyDamage(poisonWeaknessMultiplier);
+        }
+
+        if (this.durationLeft <= 0) {
+            this.changeState(new HealthyState(context));
+        }
+    }
 }
