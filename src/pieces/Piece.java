@@ -1,5 +1,7 @@
 package pieces;
 
+import board.Square;
+
 public interface Piece {
     void setAllegiance(Boolean isWhite);
 
@@ -9,5 +11,9 @@ public interface Piece {
 
     void setDamage(int damage);
 
-    void move();
+    void move(Square currentSquare, Square squareToMoveTo);
+
+    void attack();
+
+    void specialAction();
 }
