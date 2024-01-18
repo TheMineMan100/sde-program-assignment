@@ -54,4 +54,12 @@ public class Board {
             }
         }
     }
+
+    public void setSquares(Square[][] squares) {
+        this.squares = squares;
+    }
+
+    public Memento save() {
+        return new Memento(this, this.squares);
+    }
 }
