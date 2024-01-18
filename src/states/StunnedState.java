@@ -28,10 +28,12 @@ public class StunnedState implements PieceState {
 
     @Override
     public void applyEffect() {
-        this.updateDuration();
+        if (this.durationLeft > 0) {
+            this.context.setCanMove(false);
+            this.context.setCanAttack(false);
+        }
 
-        this.context.setCanMove(false);
-        this.context.setCanAttack(false);
+        this.updateDuration();
 
         if (this.durationLeft <= 0) {
             this.changeState(new HealthyState(context));

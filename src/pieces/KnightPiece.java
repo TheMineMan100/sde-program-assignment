@@ -96,8 +96,10 @@ public class KnightPiece implements Piece {
     }
 
     @Override
-    public void specialAction() {
-
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        if (canAttack) {
+            this.allegiance.specialActionWithKnight(currentSquare, squareToAttack, squaresInBetween);
+        }
     }
 
     @Override

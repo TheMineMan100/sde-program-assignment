@@ -98,8 +98,10 @@ public class BishopPiece implements Piece {
     }
 
     @Override
-    public void specialAction() {
-
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        if (canAttack) {
+            this.allegiance.specialActionWithBishop(currentSquare, squareToAttack, squaresInBetween);
+        }
     }
 
     @Override

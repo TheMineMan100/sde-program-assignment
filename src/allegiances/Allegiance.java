@@ -1,6 +1,9 @@
 package allegiances;
 
 import board.Square;
+import states.HealingState;
+import states.PoisonedState;
+import states.StunnedState;
 
 public interface Allegiance {
     public void movePawn(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);
@@ -61,6 +64,33 @@ public interface Allegiance {
         }
     };
 
+    public default void specialActionWithKnight(Square currentSquare, Square squareToAffect, Square[] squaresInBetween) {
+        if (
+            (
+                (squareToAffect.getX() - currentSquare.getX() == 1 &&
+                    squareToAffect.getY() - currentSquare.getY() == 2) ||
+                (squareToAffect.getX() - currentSquare.getX() == 1 &&
+                    squareToAffect.getY() - currentSquare.getY() == -2) ||
+                (squareToAffect.getX() - currentSquare.getX() == 2 &&
+                    squareToAffect.getY() - currentSquare.getY() == 1) ||
+                (squareToAffect.getX() - currentSquare.getX() == 2 &&
+                    squareToAffect.getY() - currentSquare.getY() == -1) ||
+                (squareToAffect.getX() - currentSquare.getX() == -1 &&
+                    squareToAffect.getY() - currentSquare.getY() == 2) ||
+                (squareToAffect.getX() - currentSquare.getX() == -1 &&
+                    squareToAffect.getY() - currentSquare.getY() == -2) ||
+                (squareToAffect.getX() - currentSquare.getX() == -2 &&
+                    squareToAffect.getY() - currentSquare.getY() == 1) ||
+                (squareToAffect.getX() - currentSquare.getX() == -2 &&
+                    squareToAffect.getY() - currentSquare.getY() == -1)
+            ) &&
+            squareToAffect.getPiece() != null &&
+            squareToAffect.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
+        ) {
+            squareToAffect.getPiece().changeState(new PoisonedState(squareToAffect.getPiece(), 3));
+        }
+    };
+
     public default void moveBishop(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
         if (
             (
@@ -103,6 +133,29 @@ public interface Allegiance {
             }
             if (noPiecesInBetween) {
                 squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
+            }
+        }
+    };
+
+    public default void specialActionWithBishop(Square currentSquare, Square squareToAffect, Square[] squaresInBetween) {
+        if (
+            (
+                squareToAffect.getX() - currentSquare.getX() != 0 &&
+                squareToAffect.getY() - currentSquare.getY() != 0 &&
+                squareToAffect.getX() - currentSquare.getX() == squareToAffect.getY() - currentSquare.getY()
+            ) &&
+            squareToAffect.getPiece() != null &&
+            squareToAffect.getPiece().getAllegiance() == currentSquare.getPiece().getAllegiance()
+        ) {
+            boolean noPiecesInBetween = true;
+            for (int i = 0; i < squaresInBetween.length; i++) {
+                if (squaresInBetween[i].getPiece() != null) {
+                    noPiecesInBetween = false;
+                    break;
+                }
+            }
+            if (noPiecesInBetween) {
+                squareToAffect.getPiece().changeState(new HealingState(squareToAffect.getPiece(), 3));
             }
         }
     };
@@ -209,6 +262,35 @@ public interface Allegiance {
             }
             if (noPiecesInBetween) {
                 squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
+            }
+        }
+    };
+
+    public default void specialActionWithQueen(Square currentSquare, Square squareToAffect, Square[] squaresInBetween) {
+        if (
+            (
+                (squareToAffect.getX() - currentSquare.getX() == 0 &&
+                    squareToAffect.getY() - currentSquare.getY() != 0) ||
+                (squareToAffect.getX() - currentSquare.getX() != 0 &&
+                    squareToAffect.getY() - currentSquare.getY() == 0) ||
+                (
+                    squareToAffect.getX() - currentSquare.getX() != 0 &&
+                    squareToAffect.getY() - currentSquare.getY() != 0 &&
+                    squareToAffect.getX() - currentSquare.getX() == squareToAffect.getY() - currentSquare.getY()
+                )
+            ) &&
+            squareToAffect.getPiece() != null &&
+            squareToAffect.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
+        ) {
+            boolean noPiecesInBetween = true;
+            for (int i = 0; i < squaresInBetween.length; i++) {
+                if (squaresInBetween[i].getPiece() != null) {
+                    noPiecesInBetween = false;
+                    break;
+                }
+            }
+            if (noPiecesInBetween) {
+                squareToAffect.getPiece().changeState(new StunnedState(squareToAffect.getPiece(), 1));
             }
         }
     };

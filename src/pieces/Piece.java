@@ -33,7 +33,7 @@ public interface Piece {
 
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
 
-    public void specialAction();
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
 
     public void takeDamage(double damage);
 
