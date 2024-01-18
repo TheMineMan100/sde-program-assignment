@@ -100,8 +100,8 @@ public interface Allegiance {
             ) &&
             squareToMoveTo.getPiece() == null
         ) {
-            int currentSquareXCoordinate = squareToMoveTo.getX();
-            int currentSquareYCoordinate = squareToMoveTo.getY();
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
 
             int squareToMoveToXCoordinate = squareToMoveTo.getX();
             int squareToMoveToYCoordinate = squareToMoveTo.getY();
@@ -109,37 +109,37 @@ public interface Allegiance {
             Square[] squaresInBetween = {};
 
             if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 2,2 3,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
                 }
-            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1  Er moet: 4,3 1,0; 2,1 3,2
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 3,2 2,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
@@ -170,8 +170,8 @@ public interface Allegiance {
                 squareToAttack.getPiece() != null &&
                 squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
-            int currentSquareXCoordinate = squareToAttack.getX();
-            int currentSquareYCoordinate = squareToAttack.getY();
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
 
             int squareToMoveToXCoordinate = squareToAttack.getX();
             int squareToMoveToYCoordinate = squareToAttack.getY();
@@ -179,37 +179,37 @@ public interface Allegiance {
             Square[] squaresInBetween = {};
 
             if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 2,2 3,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
                 }
-            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1  Er moet: 4,3 1,0; 2,1 3,2
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 3,2 2,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
@@ -239,8 +239,8 @@ public interface Allegiance {
             squareToAffect.getPiece() != null &&
             squareToAffect.getPiece().getAllegiance() == currentSquare.getPiece().getAllegiance()
         ) {
-            int currentSquareXCoordinate = squareToAffect.getX();
-            int currentSquareYCoordinate = squareToAffect.getY();
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
 
             int squareToMoveToXCoordinate = squareToAffect.getX();
             int squareToMoveToYCoordinate = squareToAffect.getY();
@@ -248,37 +248,37 @@ public interface Allegiance {
             Square[] squaresInBetween = {};
 
             if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 2,2 3,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
                 }
-            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1  Er moet: 4,3 1,0; 2,1 3,2
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
+            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
-                } else { // 3 vs 0
+                } else { // 3 vs 0  Er moet: 3,2 2,1
                     int amountOfLoops = 0;
                     int YToAdd = 1;
-                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) {
-                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd];
+                    for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                        squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
                         amountOfLoops += 1;
                         YToAdd += 1;
                     }
@@ -308,8 +308,8 @@ public interface Allegiance {
             ) &&
             squareToMoveTo.getPiece() == null
         ) {
-            int currentSquareXCoordinate = squareToMoveTo.getX();
-            int currentSquareYCoordinate = squareToMoveTo.getY();
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
 
             int squareToMoveToXCoordinate = squareToMoveTo.getX();
             int squareToMoveToYCoordinate = squareToMoveTo.getY();
@@ -317,22 +317,32 @@ public interface Allegiance {
             Square[] squaresInBetween = {};
 
             if (currentSquareXCoordinate == squareToMoveToXCoordinate) { // 1 vs 1
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 6
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 4 Er moet: 1,2 1,3
                     int amountOfLoops = 0;
-                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) {
-                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i];
+                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
                     }
-                } else { // 6 vs 0
+                } else { // 4 vs 1 Er moet: 1,3 1,2
                     int amountOfLoops = 0;
-                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) {
-                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i];
+                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
                     }
                 }
-            } else if (currentSquareXCoordinate != squareToMoveToXCoordinate) { // 1 vs 7
-                if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // 0 vs 0
-
+            } else { // 1 vs 4 & 4 vs 1
+                if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // 1 vs 1 Er moet 2,1 & 3,1
+                    if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                        int amountOfLoops = 0;
+                        for (int i = currentSquareXCoordinate + 1; i < squareToMoveToXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                        }
+                    } else { // 4 vs 1
+                        int amountOfLoops = 0;
+                        for (int i = squareToMoveToXCoordinate + 1; i < currentSquareXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                        }
+                    }
                 } else {
-
+                    squaresInBetween = null;
                 }
             }
 
@@ -361,6 +371,44 @@ public interface Allegiance {
                 squareToAttack.getPiece() != null &&
                 squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
+
+            int squareToMoveToXCoordinate = squareToAttack.getX();
+            int squareToMoveToYCoordinate = squareToAttack.getY();
+
+            Square[] squaresInBetween = {};
+
+            if (currentSquareXCoordinate == squareToMoveToXCoordinate) { // 1 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 4 Er moet: 1,2 1,3
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                } else { // 4 vs 1 Er moet: 1,3 1,2
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                }
+            } else { // 1 vs 4 & 4 vs 1
+                if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // 1 vs 1 Er moet 2,1 & 3,1
+                    if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                        int amountOfLoops = 0;
+                        for (int i = currentSquareXCoordinate + 1; i < squareToMoveToXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                        }
+                    } else { // 4 vs 1
+                        int amountOfLoops = 0;
+                        for (int i = squareToMoveToXCoordinate + 1; i < currentSquareXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                        }
+                    }
+                } else {
+                    squaresInBetween = null;
+                }
+            }
+
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
                 if (squaresInBetween[i].getPiece() != null) {
@@ -389,25 +437,75 @@ public interface Allegiance {
             ) &&
             squareToMoveTo.getPiece() == null
         ) {
-            int currentSquareXCoordinate = squareToMoveTo.getX();
-            int currentSquareYCoordinate = squareToMoveTo.getY();
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
 
             int squareToMoveToXCoordinate = squareToMoveTo.getX();
             int squareToMoveToYCoordinate = squareToMoveTo.getY();
 
             Square[] squaresInBetween = {};
 
-            if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
-
-                } else { // 3 vs 0
-
+            if (currentSquareXCoordinate == squareToMoveToXCoordinate) { // 1 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 4 Er moet: 1,2 1,3
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                } else { // 4 vs 1 Er moet: 1,3 1,2
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
                 }
-            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1  Er moet: 4,3 1,0; 2,1 3,2
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
-
-                } else { // 3 vs 0
-
+            } else if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 1 vs 1 ;Er moet 2,1 & 3,1
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareXCoordinate + 1; i < squareToMoveToXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                } else { // 4 vs 1
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToXCoordinate + 1; i < currentSquareXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                }
+            } else { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 0 vs 3 & 3 vs 0
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 2,2 3,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
+                } else { // 4 vs 1
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 3,2 2,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
                 }
             }
 
@@ -441,6 +539,78 @@ public interface Allegiance {
             squareToAttack.getPiece() != null &&
             squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
+
+            int squareToMoveToXCoordinate = squareToAttack.getX();
+            int squareToMoveToYCoordinate = squareToAttack.getY();
+
+            Square[] squaresInBetween = {};
+
+            if (currentSquareXCoordinate == squareToMoveToXCoordinate) { // 1 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 4 Er moet: 1,2 1,3
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                } else { // 4 vs 1 Er moet: 1,3 1,2
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                }
+            } else if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 1 vs 1 ;Er moet 2,1 & 3,1
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareXCoordinate + 1; i < squareToMoveToXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                } else { // 4 vs 1
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToXCoordinate + 1; i < currentSquareXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                }
+            } else { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 0 vs 3 & 3 vs 0
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 2,2 3,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
+                } else { // 4 vs 1
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 3,2 2,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
+                }
+            }
+
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
                 if (squaresInBetween[i].getPiece() != null) {
@@ -470,6 +640,78 @@ public interface Allegiance {
             squareToAffect.getPiece() != null &&
             squareToAffect.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
+            int currentSquareXCoordinate = currentSquare.getX();
+            int currentSquareYCoordinate = currentSquare.getY();
+
+            int squareToMoveToXCoordinate = squareToAffect.getX();
+            int squareToMoveToYCoordinate = squareToAffect.getY();
+
+            Square[] squaresInBetween = {};
+
+            if (currentSquareXCoordinate == squareToMoveToXCoordinate) { // 1 vs 1
+                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 1 vs 4 Er moet: 1,2 1,3
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareYCoordinate + 1; i < squareToMoveToYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                } else { // 4 vs 1 Er moet: 1,3 1,2
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToYCoordinate + 1; i < currentSquareYCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[currentSquareXCoordinate][i]; // 1,2 & 1,3 klopt
+                    }
+                }
+            } else if (currentSquareYCoordinate == squareToMoveToYCoordinate) { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 1 vs 1 ;Er moet 2,1 & 3,1
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    int amountOfLoops = 0;
+                    for (int i = currentSquareXCoordinate + 1; i < squareToMoveToXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                } else { // 4 vs 1
+                    int amountOfLoops = 0;
+                    for (int i = squareToMoveToXCoordinate + 1; i < currentSquareXCoordinate; i++) { // 2 vs 4 & 3 vs 4
+                        squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate]; // 2,1 & 3,1 klopt
+                    }
+                }
+            } else { // X-coordinaten: 1 vs 4 & 4 vs 1 ;Y-coordinaten: 0 vs 3 & 3 vs 0
+                if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 2,1 3,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 2,2 3,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = currentSquareXCoordinate + 1; i <= squareToMoveToXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][currentSquareYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
+                } else { // 4 vs 1
+                    if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3  Er moet: 3,1 2,2
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate - YToAdd]; // 2  &  1,  2,2 en 3,1 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    } else { // 3 vs 0  Er moet: 3,2 2,1
+                        int amountOfLoops = 0;
+                        int YToAdd = 1;
+                        for (int i = squareToMoveToXCoordinate + 1; i <= currentSquareXCoordinate - 1; i++) { // 2 vs 3 & 3 vs 3
+                            squaresInBetween[amountOfLoops] = squares[i][squareToMoveToYCoordinate + YToAdd]; // 1  &  2,  2,1 en 3,2 klopt
+                            amountOfLoops += 1;
+                            YToAdd += 1;
+                        }
+                    }
+                }
+            }
+
             boolean noPiecesInBetween = true;
             for (int i = 0; i < squaresInBetween.length; i++) {
                 if (squaresInBetween[i].getPiece() != null) {
@@ -505,39 +747,8 @@ public interface Allegiance {
             ) &&
             squareToMoveTo.getPiece() == null
         ) {
-            int currentSquareXCoordinate = squareToMoveTo.getX();
-            int currentSquareYCoordinate = squareToMoveTo.getY();
-
-            int squareToMoveToXCoordinate = squareToMoveTo.getX();
-            int squareToMoveToYCoordinate = squareToMoveTo.getY();
-
-            Square[] squaresInBetween = {};
-
-            if (currentSquareXCoordinate < squareToMoveToXCoordinate) { // 1 vs 4
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
-
-                } else { // 3 vs 0
-
-                }
-            } else if (currentSquareXCoordinate > squareToMoveToXCoordinate) { // 4 vs 1  Er moet: 4,3 1,0; 2,1 3,2
-                if (currentSquareYCoordinate < squareToMoveToYCoordinate) { // 0 vs 3
-
-                } else { // 3 vs 0
-
-                }
-            }
-
-            boolean noPiecesInBetween = true;
-            for (int i = 0; i < squaresInBetween.length; i++) {
-                if (squaresInBetween[i].getPiece() != null) {
-                    noPiecesInBetween = false;
-                    break;
-                }
-            }
-            if (noPiecesInBetween) {
-                squareToMoveTo.setPiece(currentSquare.getPiece());
-                currentSquare.setPiece(null);
-            }
+            squareToMoveTo.setPiece(currentSquare.getPiece());
+            currentSquare.setPiece(null);
         }
     };
 
@@ -564,18 +775,7 @@ public interface Allegiance {
                 squareToAttack.getPiece() != null &&
                 squareToAttack.getPiece().getAllegiance() != currentSquare.getPiece().getAllegiance()
         ) {
-
-
-            boolean noPiecesInBetween = true;
-            for (int i = 0; i < squaresInBetween.length; i++) {
-                if (squaresInBetween[i].getPiece() != null) {
-                    noPiecesInBetween = false;
-                    break;
-                }
-            }
-            if (noPiecesInBetween) {
-                squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
-            }
+            squareToAttack.getPiece().takeDamage(currentSquare.getPiece().getDamage());
         }
     };
 }

@@ -64,10 +64,14 @@ public class Main {
                     writer.writeLine("Invalid integer input");
                 }
                 if (!errorDetected) {
-                    writer.writeLine(String.valueOf(currentSquareXCoordinate));
-                    writer.writeLine(String.valueOf(currentSquareYCoordinate));
-                    writer.writeLine(String.valueOf(squareToMoveToXCoordinate));
-                    writer.writeLine(String.valueOf(squareToMoveToYCoordinate));
+                    Square currentSquare = board.getSquare(currentSquareXCoordinate, currentSquareYCoordinate);
+                    Square squareToMoveTo = board.getSquare(squareToMoveToXCoordinate, squareToMoveToYCoordinate);
+
+                    Piece piece = currentSquare.getPiece();
+
+                    piece.move(currentSquare, squareToMoveTo, board.getSquares());
+
+                    board.printBoard();
                 }
             } else {
                 if (parts.length < 3) {
@@ -95,7 +99,6 @@ public class Main {
                     hasMoved = false;
                     hasAttacked = false;
                 }
-
             } else {
                 writer.writeLine("You HAVE to move");
             }

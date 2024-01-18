@@ -91,6 +91,11 @@ public class Board {
         return squares[posX][posY];
     }
 
+    public Square[][] getSquares() {
+        return this.squares;
+    }
+
+
     public void printBoard() {
         String[] boardToPrint = new String[8];
 
