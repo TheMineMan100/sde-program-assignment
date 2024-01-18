@@ -14,6 +14,8 @@ public class Main {
 
         board.printBoard();
 
+        writer.writeLine("The white player begins. The white pieces are at the bottom, the black pieces on top. For possible commands, see readme file");
+
         HistoryCaretaker historyCareTaker = new HistoryCaretaker(board);
 
         boolean whitePlayerTurn = true;
@@ -64,22 +66,35 @@ public class Main {
                     writer.writeLine("Invalid integer input");
                 }
                 if (!errorDetected) {
-                    Square currentSquare = board.getSquare(currentSquareXCoordinate, currentSquareYCoordinate);
-                    Square squareToMoveTo = board.getSquare(squareToMoveToXCoordinate, squareToMoveToYCoordinate);
+                    if (!hasMoved) {
+                        Square currentSquare = board.getSquare(currentSquareXCoordinate, currentSquareYCoordinate);
+                        Square squareToMoveTo = board.getSquare(squareToMoveToXCoordinate, squareToMoveToYCoordinate);
 
-                    Piece piece = currentSquare.getPiece();
+                        Piece piece = currentSquare.getPiece();
 
-                    if (piece != null) {
-                        piece.move(currentSquare, squareToMoveTo, board.getSquares());
+                        if (piece != null) {
+                            if (
+                                (piece.getAllegiance().getClass().getSimpleName().equals("White") &&
+                                    whitePlayerTurn) ||
+                                (piece.getAllegiance().getClass().getSimpleName().equals("Black") &&
+                                    !whitePlayerTurn)
+                            ) {
+                                piece.move(currentSquare, squareToMoveTo, board.getSquares());
 
-                        if (squareToMoveTo.getPiece() == piece) {
-                            board.printBoard();
-                            hasMoved = true;
+                                if (squareToMoveTo.getPiece() == piece) {
+                                    board.printBoard();
+                                    hasMoved = true;
+                                } else {
+                                    writer.writeLine("Could not move piece");
+                                }
+                            } else {
+                                writer.writeLine("Can not move piece of other player");
+                            }
                         } else {
-                            writer.writeLine("Could not move piece");
+                            writer.writeLine("No piece detected on selected square");
                         }
                     } else {
-                        writer.writeLine("No piece detected on selected square");
+                        writer.writeLine("You may only move once per turn");
                     }
                 }
             } else {
@@ -94,9 +109,40 @@ public class Main {
         } else if (parts[0].equals("Special-action")) {
 
         } else if (parts[0].equals("Restore")) {
+            if(parts.length == 2) {
+                boolean errorDetected = false;
 
+                int turn = 0;
+                try {
+                    turn = Integer.parseInt(parts[1]);
+                } catch (NumberFormatException err) {
+                    errorDetected = true;
+                    writer.writeLine("Invalid integer input");
+                }
+                if (!errorDetected) {
+                    historyCareTaker.restoreMemento(turn);
+
+                    board.printBoard();
+                }
+            } else {
+                if (parts.length < 2) {
+                    writer.writeLine("Command missing parameters");
+                } else {
+                    writer.writeLine("Command contains too many parameters");
+                }
+            }
         } else if (parts[0].equals("Undo-turn")) {
+            if(parts.length == 1) {
+                historyCareTaker.restoreLastMemento();
 
+                board.printBoard();
+            } else {
+                if (parts.length < 1) {
+                    writer.writeLine("How did you manage this? Too few parameters??");
+                } else {
+                    writer.writeLine("Command contains too many parameters");
+                }
+            }
         } else if (parts[0].equals("End")) {
             if (hasMoved) {
                 if (whitePlayerTurn) {
@@ -108,6 +154,7 @@ public class Main {
                     hasMoved = false;
                     hasAttacked = false;
                 }
+                historyCareTaker.saveMemento();
             } else {
                 writer.writeLine("You HAVE to move");
             }

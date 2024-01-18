@@ -1,5 +1,7 @@
 package board;
 
+import java.util.Arrays;
+
 public class HistoryCaretaker {
     private Memento[] history;
 
@@ -7,17 +9,23 @@ public class HistoryCaretaker {
 
     public HistoryCaretaker(Board board) {
         this.board = board;
+        this.history = new Memento[0];
     }
 
     public void saveMemento() {
-        this.history[this.history.length] = this.board.save();
+        this.history = Arrays.copyOf(this.history, this.history.length + 1);
+        this.history[this.history.length - 1] = this.board.save();
     }
 
     public void restoreMemento(int turn) {
-        this.history[turn].restore();
+        if (this.history[turn] != null) {
+            this.history[turn].restore();
+        }
     }
 
-    public void restoreLastMomento() {
-        this.history[this.history.length - 1].restore();
+    public void restoreLastMemento() {
+        if (this.history.length > 0) {
+            this.history[this.history.length - 1].restore();
+        }
     }
 }
