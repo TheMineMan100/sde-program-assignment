@@ -97,7 +97,7 @@ public class Board {
         for (int i = 7; i > -1; i--) {
             String lineToPrint = "";
 
-            for (int j = 7; j > -1; j--) {
+            for (int j = 0; j < 8; j++) {
                 Piece piece = this.squares[j][i].getPiece();
                 String pieceSymbol = "";
                 if (piece != null) {

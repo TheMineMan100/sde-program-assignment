@@ -7,6 +7,12 @@ public class Main {
         ConsoleReader reader = new ConsoleReader();
         ConsoleWriter writer = new ConsoleWriter();
 
+        Board board = new Board();
+
+        board.initialiseBoard();
+
+        board.printBoard();
+
         String incomingCommand = reader.readLine();
         String[] parts = incomingCommand.split(" ");
         if (parts[0].equals("Move")) {
@@ -29,10 +35,13 @@ public class Main {
                     writer.writeLine("Invalid integer input");
                 }
                 if (!errorDetected) {
-                    writer.writeLine(String.valueOf(currentSquareXCoordinate));
-                    writer.writeLine(String.valueOf(currentSquareYCoordinate));
-                    writer.writeLine(String.valueOf(squareToMoveToXCoordinate));
-                    writer.writeLine(String.valueOf(squareToMoveToYCoordinate));
+                    Square startSquare = board.getSquare(currentSquareXCoordinate, currentSquareYCoordinate);
+                    Square newSquare = board.getSquare(squareToMoveToXCoordinate, squareToMoveToYCoordinate);
+                    Piece piece = startSquare.getPiece();
+
+                    piece.move(startSquare, newSquare, null);
+
+                    board.printBoard();
                 }
             } else {
                 if (parts.length < 3) {
@@ -54,15 +63,6 @@ public class Main {
         } else {
             writer.writeLine("Command not recognized");
         }
-
-        writer.writeLine("Hello world!");
-        System.out.println("Hello world!");
-
-        Board board = new Board();
-
-        board.initialiseBoard();
-
-        board.printBoard();
 
         if (reader.readLine().equals("move")) {
             Square someSquare = board.getSquare(1, 1);
