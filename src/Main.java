@@ -63,15 +63,5 @@ public class Main {
         } else {
             writer.writeLine("Command not recognized");
         }
-
-        if (reader.readLine().equals("move")) {
-            Square someSquare = board.getSquare(1, 1);
-            Square newSquare = board.getSquare(1, 2);
-            Piece piece = someSquare.getPiece();
-
-            piece.move(someSquare, newSquare, null);
-
-            board.printBoard();
-        }
     }
 }
