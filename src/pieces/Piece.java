@@ -25,13 +25,15 @@ public interface Piece {
 
     public String getSymbol();
 
+    public double getDamage();
+
     public void multiplyDamage(double multiplier);
 
     public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween);
 
     public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
 
-    public void specialAction();
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween);
 
     public void takeDamage(double damage);
 

@@ -33,11 +33,13 @@ public class PoisonedState implements PieceState {
 
     @Override
     public void applyEffect() {
-        this.updateDuration();
-
-        if (! poisonHasBeenApplied) {
-            this.context.multiplyDamage(poisonWeaknessMultiplier);
+        if (this.durationLeft > 0) {
+            if (! poisonHasBeenApplied) {
+                this.context.multiplyDamage(poisonWeaknessMultiplier);
+            }
         }
+
+        this.updateDuration();
 
         if (this.durationLeft <= 0) {
             this.changeState(new HealthyState(context));

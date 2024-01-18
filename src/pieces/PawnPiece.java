@@ -38,6 +38,11 @@ public class PawnPiece implements Piece {
     }
 
     @Override
+    public double getDamage() {
+        return this.damage;
+    };
+
+    @Override
     public void changeState(PieceState state) {
         this.state = state;
     }
@@ -92,7 +97,7 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void specialAction() {
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
 
     }
 

@@ -37,6 +37,11 @@ public class BishopPiece implements Piece {
         this.symbol = symbol;
     }
 
+    @Override
+    public double getDamage() {
+        return this.damage;
+    };
+
 
     @Override
     public void changeState(PieceState state) {
@@ -93,8 +98,10 @@ public class BishopPiece implements Piece {
     }
 
     @Override
-    public void specialAction() {
-
+    public void specialAction(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        if (canAttack) {
+            this.allegiance.specialActionWithBishop(currentSquare, squareToAttack, squaresInBetween);
+        }
     }
 
     @Override

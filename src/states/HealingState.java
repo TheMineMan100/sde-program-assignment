@@ -28,9 +28,11 @@ public class HealingState implements PieceState {
 
     @Override
     public void applyEffect() {
-        this.updateDuration();
+        if (this.durationLeft > 0) {
+            this.context.gainHealth(healAmount);
+        }
 
-        this.context.gainHealth(healAmount);
+        this.updateDuration();
 
         if (this.durationLeft <= 0) {
             this.changeState(new HealthyState(context));
