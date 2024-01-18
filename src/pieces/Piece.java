@@ -1,19 +1,23 @@
 package pieces;
 
+import allegiances.Allegiance;
 import board.Square;
+import states.PieceState;
 
 public interface Piece {
-    void setAllegiance(Boolean isWhite);
+    public void setAllegiance(Allegiance allegiance);
 
-    void setHealth(int health);
+    public void setState(PieceState state);
 
-    void setArmor(int armor);
+    public void setHealth(int health);
 
-    void setDamage(int damage);
+    public void setArmor(int armor);
 
-    void move(Square currentSquare, Square squareToMoveTo);
+    public void setDamage(int damage);
 
-    void attack();
+    public void move(Square currentSquare, Square squareToMoveTo);
 
-    void specialAction();
+    public void attack();
+
+    public void specialAction();
 }
