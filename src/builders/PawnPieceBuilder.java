@@ -19,11 +19,11 @@ public class PawnPieceBuilder implements PieceBuilder {
 
     @Override
     public void setState(PieceState state) {
-        this.pawn.setState(state);
+        this.pawn.changeState(state);
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.pawn.setHealth(health);
     }
 
@@ -33,7 +33,7 @@ public class PawnPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.pawn.setDamage(damage);
     }
 

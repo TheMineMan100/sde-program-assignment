@@ -4,6 +4,7 @@ import allegiances.Allegiance;
 import builders.KnightPieceBuilder;
 import pieces.KnightPiece;
 import states.HealthyState;
+import states.NullState;
 
 public class KnightPieceFactory implements PieceFactory<KnightPieceBuilder> {
     private final Allegiance whiteAllegiance;
@@ -18,24 +19,28 @@ public class KnightPieceFactory implements PieceFactory<KnightPieceBuilder> {
     @Override
     public KnightPiece createWhitePiece(KnightPieceBuilder builder) {
         builder.setAllegiance(this.whiteAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(3);
+        builder.setArmor(1);
+        builder.setDamage(3);
+
         KnightPiece knight = builder.getResult();
-        knight.setState(new HealthyState(knight));
+        knight.changeState(new HealthyState(knight));
+
         return knight;
     };
 
     @Override
     public KnightPiece createBlackPiece(KnightPieceBuilder builder) {
         builder.setAllegiance(this.blackAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(3);
+        builder.setArmor(1);
+        builder.setDamage(3);
+
         KnightPiece knight = builder.getResult();
-        knight.setState(new HealthyState(knight));
+        knight.changeState(new HealthyState(knight));
+
         return knight;
     };
 }

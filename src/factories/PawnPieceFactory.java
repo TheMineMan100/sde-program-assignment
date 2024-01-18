@@ -4,6 +4,7 @@ import allegiances.Allegiance;
 import builders.PawnPieceBuilder;
 import pieces.PawnPiece;
 import states.HealthyState;
+import states.NullState;
 
 public class PawnPieceFactory implements PieceFactory<PawnPieceBuilder> {
     private final Allegiance whiteAllegiance;
@@ -18,24 +19,28 @@ public class PawnPieceFactory implements PieceFactory<PawnPieceBuilder> {
     @Override
     public PawnPiece createWhitePiece(PawnPieceBuilder builder) {
         builder.setAllegiance(this.whiteAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(1);
+        builder.setArmor(0);
+        builder.setDamage(1);
+
         PawnPiece pawn = builder.getResult();
-        pawn.setState(new HealthyState(pawn));
+        pawn.changeState(new HealthyState(pawn));
+
         return pawn;
     };
 
     @Override
     public PawnPiece createBlackPiece(PawnPieceBuilder builder) {
         builder.setAllegiance(this.blackAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(1);
+        builder.setArmor(0);
+        builder.setDamage(1);
+
         PawnPiece pawn = builder.getResult();
-        pawn.setState(new HealthyState(pawn));
+        pawn.changeState(new HealthyState(pawn));
+
         return pawn;
     };
 }

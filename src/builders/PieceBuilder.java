@@ -11,11 +11,11 @@ public interface PieceBuilder {
 
     void setState(PieceState state);
 
-    void setHealth(int health);
+    void setHealth(double health);
 
     void setArmor(int armor);
 
-    void setDamage(int damage);
+    void setDamage(double damage);
 
     Piece getResult();
 }

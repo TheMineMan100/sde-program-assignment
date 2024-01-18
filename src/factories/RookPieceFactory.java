@@ -4,6 +4,7 @@ import allegiances.Allegiance;
 import builders.RookPieceBuilder;
 import pieces.RookPiece;
 import states.HealthyState;
+import states.NullState;
 
 public class RookPieceFactory implements PieceFactory<RookPieceBuilder> {
     private final Allegiance whiteAllegiance;
@@ -18,24 +19,28 @@ public class RookPieceFactory implements PieceFactory<RookPieceBuilder> {
     @Override
     public RookPiece createWhitePiece(RookPieceBuilder builder) {
         builder.setAllegiance(this.whiteAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(3);
+        builder.setArmor(3);
+        builder.setDamage(2);
+
         RookPiece rook = builder.getResult();
-        rook.setState(new HealthyState(rook));
+        rook.changeState(new HealthyState(rook));
+
         return rook;
     };
 
     @Override
     public RookPiece createBlackPiece(RookPieceBuilder builder) {
         builder.setAllegiance(this.blackAllegiance);
-        builder.setState();
-        builder.setHealth();
-        builder.setArmor();
-        builder.setDamage();
+        builder.setState(new NullState());
+        builder.setHealth(3);
+        builder.setArmor(3);
+        builder.setDamage(2);
+
         RookPiece rook = builder.getResult();
-        rook.setState(new HealthyState(rook));
+        rook.changeState(new HealthyState(rook));
+
         return rook;
     };
 }

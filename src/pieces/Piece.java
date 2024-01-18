@@ -11,11 +11,11 @@ public interface Piece {
 
     public void changeState(PieceState state);
 
-    public void setHealth(int health);
+    public void setHealth(double health);
 
     public void setArmor(int armor);
 
-    public void setDamage(int damage);
+    public void setDamage(double damage);
 
     public void setCanMove(Boolean canMove);
 

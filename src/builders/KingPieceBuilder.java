@@ -19,11 +19,11 @@ public class KingPieceBuilder implements PieceBuilder {
 
     @Override
     public void setState(PieceState state) {
-        this.king.setState(state);
+        this.king.changeState(state);
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.king.setHealth(health);
     }
 
@@ -33,7 +33,7 @@ public class KingPieceBuilder implements PieceBuilder {
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.king.setDamage(damage);
     }
 
