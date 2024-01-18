@@ -15,6 +15,8 @@ public class QueenPiece implements Piece {
 
     private double damage;
 
+    private Boolean canMove;
+
     @Override
     public void setAllegiance(Allegiance allegiance) {
         this.allegiance = allegiance;
@@ -41,13 +43,20 @@ public class QueenPiece implements Piece {
     }
 
     @Override
+    public void setCanMove(Boolean canMove) {
+        this.canMove = canMove;
+    }
+
+    @Override
     public void multiplyDamage(double multiplier) {
         this.damage *= multiplier;
     }
 
     @Override
     public void move(Square currentSquare, Square squareToMoveTo) {
-        this.allegiance.moveQueen(currentSquare, squareToMoveTo);
+        if (canMove) {
+            this.allegiance.moveQueen(currentSquare, squareToMoveTo);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package states;
 
+import board.Square;
 import pieces.Piece;
 
 public class HealthyState implements PieceState {

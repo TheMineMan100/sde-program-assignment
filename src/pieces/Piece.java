@@ -15,6 +15,8 @@ public interface Piece {
 
     public void setDamage(int damage);
 
+    public void setCanMove(Boolean canMove);
+
     public void multiplyDamage(double multiplier);
 
     public void move(Square currentSquare, Square squareToMoveTo);

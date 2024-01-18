@@ -1,9 +1,10 @@
 package states;
 
+import board.Square;
 import pieces.Piece;
 
 public class StunnedState implements PieceState {
-    private Piece context;
+    private final Piece context;
 
     private int durationLeft;
 
@@ -14,6 +15,8 @@ public class StunnedState implements PieceState {
 
     @Override
     public void changeState() {
+        this.context.setCanMove(true);
+
         context.changeState(new HealthyState(context));
     }
 
@@ -25,6 +28,8 @@ public class StunnedState implements PieceState {
     @Override
     public void applyEffect() {
         this.updateDuration();
+
+        this.context.setCanMove(false);
 
         if (this.durationLeft <= 0) {
             this.changeState();

@@ -1,15 +1,16 @@
 package states;
 
+import board.Square;
 import pieces.Piece;
 
 public class PoisonedState implements PieceState {
-    private Piece context;
+    private final Piece context;
 
     private int durationLeft;
 
-    private double poisonWeaknessMultiplier;
+    private final double poisonWeaknessMultiplier;
 
-    private Boolean poisonHasBeenApplied;
+    private final Boolean poisonHasBeenApplied;
 
     public PoisonedState(Piece context, int duration) {
         this.context = context;
