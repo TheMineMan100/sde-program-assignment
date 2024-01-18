@@ -41,13 +41,13 @@ public class RookPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
-        this.allegiance.moveRook(currentSquare, squareToMoveTo);
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+        this.allegiance.moveRook(currentSquare, squareToMoveTo, squaresInBetween);
     }
 
     @Override
-    public void attack() {
-
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithRook(currentSquare, squareToAttack, squaresInBetween);
     };
 
     @Override

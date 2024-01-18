@@ -42,13 +42,13 @@ public class PawnPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
-        this.allegiance.movePawn(currentSquare, squareToMoveTo);
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+        this.allegiance.movePawn(currentSquare, squareToMoveTo, squaresInBetween);
     }
 
     @Override
-    public void attack() {
-
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithPawn(currentSquare, squareToAttack, squaresInBetween);
     };
 
     @Override

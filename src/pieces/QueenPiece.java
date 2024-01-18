@@ -41,13 +41,13 @@ public class QueenPiece implements Piece {
     }
 
     @Override
-    public void move(Square currentSquare, Square squareToMoveTo) {
-        this.allegiance.moveQueen(currentSquare, squareToMoveTo);
+    public void move(Square currentSquare, Square squareToMoveTo, Square[] squaresInBetween) {
+        this.allegiance.moveQueen(currentSquare, squareToMoveTo, squaresInBetween);
     }
 
     @Override
-    public void attack() {
-
+    public void attack(Square currentSquare, Square squareToAttack, Square[] squaresInBetween) {
+        this.allegiance.attackWithQueen(currentSquare, squareToAttack, squaresInBetween);
     };
 
     @Override
