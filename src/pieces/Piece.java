@@ -9,17 +9,21 @@ public interface Piece {
 
     public Allegiance getAllegiance();
 
+    public void setSymbol(String symbol);
+
     public void changeState(PieceState state);
 
-    public void setHealth(int health);
+    public void setHealth(double health);
 
     public void setArmor(int armor);
 
-    public void setDamage(int damage);
+    public void setDamage(double damage);
 
     public void setCanMove(Boolean canMove);
 
     public void setCanAttack(Boolean canAttack);
+
+    public String getSymbol();
 
     public void multiplyDamage(double multiplier);
 
