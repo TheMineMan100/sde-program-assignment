@@ -37,6 +37,11 @@ public class QueenPieceBuilder implements PieceBuilder {
         this.queen.setDamage(damage);
     }
 
+    @Override
+    public void setSymbol(String symbol) {
+        this.queen.setSymbol(symbol);
+    }
+
     public QueenPiece getResult() {
         QueenPiece result = this.queen;
         this.reset();

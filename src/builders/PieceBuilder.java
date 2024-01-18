@@ -17,5 +17,7 @@ public interface PieceBuilder {
 
     void setDamage(double damage);
 
+    void setSymbol(String symbol);
+
     Piece getResult();
 }

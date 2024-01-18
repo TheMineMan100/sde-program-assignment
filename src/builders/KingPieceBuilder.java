@@ -37,6 +37,11 @@ public class KingPieceBuilder implements PieceBuilder {
         this.king.setDamage(damage);
     }
 
+    @Override
+    public void setSymbol(String symbol) {
+        this.king.setSymbol(symbol);
+    }
+
     public KingPiece getResult() {
         KingPiece result = this.king;
         this.reset();

@@ -11,34 +11,39 @@ public class RookPieceFactory implements PieceFactory<RookPieceBuilder> {
 
     private final Allegiance blackAllegiance;
 
+    private RookPieceBuilder builder;
+
     public RookPieceFactory(Allegiance whiteAllegiance, Allegiance blackAllegiance) {
         this.whiteAllegiance = whiteAllegiance;
         this.blackAllegiance = blackAllegiance;
+        this.builder = new RookPieceBuilder();
     };
 
     @Override
-    public RookPiece createWhitePiece(RookPieceBuilder builder) {
-        builder.setAllegiance(this.whiteAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(3);
-        builder.setDamage(2);
+    public RookPiece createWhitePiece() {
+        this.builder.setAllegiance(this.whiteAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(3);
+        this.builder.setDamage(2);
+        this.builder.setSymbol("♖");
 
-        RookPiece rook = builder.getResult();
+        RookPiece rook = this.builder.getResult();
         rook.changeState(new HealthyState(rook));
 
         return rook;
     };
 
     @Override
-    public RookPiece createBlackPiece(RookPieceBuilder builder) {
-        builder.setAllegiance(this.blackAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(3);
-        builder.setDamage(2);
+    public RookPiece createBlackPiece() {
+        this.builder.setAllegiance(this.blackAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(3);
+        this.builder.setDamage(2);
+        this.builder.setSymbol("♜");
 
-        RookPiece rook = builder.getResult();
+        RookPiece rook = this.builder.getResult();
         rook.changeState(new HealthyState(rook));
 
         return rook;

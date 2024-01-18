@@ -11,36 +11,39 @@ public class BishopPieceFactory implements PieceFactory<BishopPieceBuilder> {
 
     private final Allegiance blackAllegiance;
 
-    private BishopPieceBuilder newBuilder;
+    private BishopPieceBuilder builder;
 
     public BishopPieceFactory(Allegiance whiteAllegiance, Allegiance blackAllegiance) {
         this.whiteAllegiance = whiteAllegiance;
         this.blackAllegiance = blackAllegiance;
+        this.builder = new BishopPieceBuilder();
     }
 
     @Override
-    public BishopPiece createWhitePiece(BishopPieceBuilder builder) {
-        builder.setAllegiance(this.whiteAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(0);
-        builder.setDamage(2);
+    public BishopPiece createWhitePiece() {
+        this.builder.setAllegiance(this.whiteAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(0);
+        this.builder.setDamage(2);
+        this.builder.setSymbol("♗");
 
-        BishopPiece bishop = builder.getResult();
+        BishopPiece bishop = this.builder.getResult();
         bishop.changeState(new HealthyState(bishop));
 
         return bishop;
     };
 
     @Override
-    public BishopPiece createBlackPiece(BishopPieceBuilder builder) {
-        builder.setAllegiance(this.blackAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(0);
-        builder.setDamage(2);
+    public BishopPiece createBlackPiece() {
+        this.builder.setAllegiance(this.blackAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(0);
+        this.builder.setDamage(2);
+        this.builder.setSymbol("♝");
 
-        BishopPiece bishop = builder.getResult();
+        BishopPiece bishop = this.builder.getResult();
         bishop.changeState(new HealthyState(bishop));
 
         return bishop;

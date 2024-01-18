@@ -37,6 +37,11 @@ public class PawnPieceBuilder implements PieceBuilder {
         this.pawn.setDamage(damage);
     }
 
+    @Override
+    public void setSymbol(String symbol) {
+        this.pawn.setSymbol(symbol);
+    }
+
     public PawnPiece getResult() {
         PawnPiece result = this.pawn;
         this.reset();

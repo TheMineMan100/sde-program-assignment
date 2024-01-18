@@ -37,6 +37,11 @@ public class KnightPieceBuilder implements PieceBuilder {
         this.knight.setDamage(damage);
     }
 
+    @Override
+    public void setSymbol(String symbol) {
+        this.knight.setSymbol(symbol);
+    }
+
     public KnightPiece getResult() {
         KnightPiece result = this.knight;
         this.reset();

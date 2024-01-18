@@ -37,6 +37,11 @@ public class RookPieceBuilder implements PieceBuilder {
         this.rook.setDamage(damage);
     }
 
+    @Override
+    public void setSymbol(String symbol) {
+        this.rook.setSymbol(symbol);
+    }
+
     public RookPiece getResult() {
         RookPiece result = this.rook;
         this.reset();

@@ -11,34 +11,39 @@ public class KnightPieceFactory implements PieceFactory<KnightPieceBuilder> {
 
     private final Allegiance blackAllegiance;
 
+    private KnightPieceBuilder builder;
+
     public KnightPieceFactory(Allegiance whiteAllegiance, Allegiance blackAllegiance) {
         this.whiteAllegiance = whiteAllegiance;
         this.blackAllegiance = blackAllegiance;
+        this.builder = new KnightPieceBuilder();
     };
 
     @Override
-    public KnightPiece createWhitePiece(KnightPieceBuilder builder) {
-        builder.setAllegiance(this.whiteAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(1);
-        builder.setDamage(3);
+    public KnightPiece createWhitePiece() {
+        this.builder.setAllegiance(this.whiteAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(1);
+        this.builder.setDamage(3);
+        this.builder.setSymbol("♘");
 
-        KnightPiece knight = builder.getResult();
+        KnightPiece knight = this.builder.getResult();
         knight.changeState(new HealthyState(knight));
 
         return knight;
     };
 
     @Override
-    public KnightPiece createBlackPiece(KnightPieceBuilder builder) {
-        builder.setAllegiance(this.blackAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(3);
-        builder.setArmor(1);
-        builder.setDamage(3);
+    public KnightPiece createBlackPiece() {
+        this.builder.setAllegiance(this.blackAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(3);
+        this.builder.setArmor(1);
+        this.builder.setDamage(3);
+        this.builder.setSymbol("♞");
 
-        KnightPiece knight = builder.getResult();
+        KnightPiece knight = this.builder.getResult();
         knight.changeState(new HealthyState(knight));
 
         return knight;

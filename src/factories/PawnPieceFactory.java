@@ -11,34 +11,39 @@ public class PawnPieceFactory implements PieceFactory<PawnPieceBuilder> {
 
     private final Allegiance blackAllegiance;
 
+    private PawnPieceBuilder builder;
+
     public PawnPieceFactory(Allegiance whiteAllegiance, Allegiance blackAllegiance) {
         this.whiteAllegiance = whiteAllegiance;
         this.blackAllegiance = blackAllegiance;
+        this.builder = new PawnPieceBuilder();
     };
 
     @Override
-    public PawnPiece createWhitePiece(PawnPieceBuilder builder) {
-        builder.setAllegiance(this.whiteAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(1);
-        builder.setArmor(0);
-        builder.setDamage(1);
+    public PawnPiece createWhitePiece() {
+        this.builder.setAllegiance(this.whiteAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(1);
+        this.builder.setArmor(0);
+        this.builder.setDamage(1);
+        this.builder.setSymbol("♙");
 
-        PawnPiece pawn = builder.getResult();
+        PawnPiece pawn = this.builder.getResult();
         pawn.changeState(new HealthyState(pawn));
 
         return pawn;
     };
 
     @Override
-    public PawnPiece createBlackPiece(PawnPieceBuilder builder) {
-        builder.setAllegiance(this.blackAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(1);
-        builder.setArmor(0);
-        builder.setDamage(1);
+    public PawnPiece createBlackPiece() {
+        this.builder.setAllegiance(this.blackAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(1);
+        this.builder.setArmor(0);
+        this.builder.setDamage(1);
+        this.builder.setSymbol("♟");
 
-        PawnPiece pawn = builder.getResult();
+        PawnPiece pawn = this.builder.getResult();
         pawn.changeState(new HealthyState(pawn));
 
         return pawn;

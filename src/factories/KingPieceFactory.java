@@ -11,34 +11,39 @@ public class KingPieceFactory implements PieceFactory<KingPieceBuilder> {
 
     private final Allegiance blackAllegiance;
 
+    private KingPieceBuilder builder;
+
     public KingPieceFactory(Allegiance whiteAllegiance, Allegiance blackAllegiance) {
         this.whiteAllegiance = whiteAllegiance;
         this.blackAllegiance = blackAllegiance;
+        this.builder = new KingPieceBuilder();
     };
 
     @Override
-    public KingPiece createWhitePiece(KingPieceBuilder builder) {
-        builder.setAllegiance(this.whiteAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(5);
-        builder.setArmor(2);
-        builder.setDamage(4);
+    public KingPiece createWhitePiece() {
+        this.builder.setAllegiance(this.whiteAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(5);
+        this.builder.setArmor(2);
+        this.builder.setDamage(4);
+        this.builder.setSymbol("♔");
 
-        KingPiece king = builder.getResult();
+        KingPiece king = this.builder.getResult();
         king.changeState(new HealthyState(king));
 
         return king;
     };
 
     @Override
-    public KingPiece createBlackPiece(KingPieceBuilder builder) {
-        builder.setAllegiance(this.blackAllegiance);
-        builder.setState(new NullState());
-        builder.setHealth(5);
-        builder.setArmor(2);
-        builder.setDamage(3);
+    public KingPiece createBlackPiece() {
+        this.builder.setAllegiance(this.blackAllegiance);
+        this.builder.setState(new NullState());
+        this.builder.setHealth(5);
+        this.builder.setArmor(2);
+        this.builder.setDamage(3);
+        this.builder.setSymbol("♚");
 
-        KingPiece king = builder.getResult();
+        KingPiece king = this.builder.getResult();
         king.changeState(new HealthyState(king));
 
         return king;

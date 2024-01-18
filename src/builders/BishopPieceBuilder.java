@@ -1,6 +1,7 @@
 package builders;
 
 import allegiances.Allegiance;
+import allegiances.White;
 import pieces.BishopPiece;
 import states.PieceState;
 
@@ -35,6 +36,11 @@ public class BishopPieceBuilder implements PieceBuilder {
     @Override
     public void setDamage(double damage) {
         this.bishop.setDamage(damage);
+    }
+
+    @Override
+    public void setSymbol(String symbol) {
+        this.bishop.setSymbol(symbol);
     }
 
     public BishopPiece getResult() {
