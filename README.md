@@ -1,4 +1,4 @@
-# Our Program
+# RPG Chess
 
 To finish the course "Software Design" we were tasked with making a program using some of the design patterns we had learnt. We had to work in pairs, in order to be able to discuss with one another about how and when to apply the design patterns, which would hopefully result in a better program. 
 
@@ -73,8 +73,13 @@ The command "end", ends the turn of the current player.
 
 # Cooperation
 
+To write this program in an orderly fashion, we consistently worked with separate branches, with each of us working on one branch at a time, that were merged into the "develop" branch once the feature the branch was for had been finished.
 
-Here we describe the way we worked together
+This way we would both be able to work at the same time, without problems when committing.
+
+We wrote out a short list of features for the program and set up the rules for the game so that we would know what still had to be done.
+
+All in all, this cooperation went quite well, and we managed to divide the workload fairly evenly.
 
 # Design Patterns
 
