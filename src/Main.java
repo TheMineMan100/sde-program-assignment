@@ -69,9 +69,18 @@ public class Main {
 
                     Piece piece = currentSquare.getPiece();
 
-                    piece.move(currentSquare, squareToMoveTo, board.getSquares());
+                    if (piece != null) {
+                        piece.move(currentSquare, squareToMoveTo, board.getSquares());
 
-                    board.printBoard();
+                        if (squareToMoveTo.getPiece() == piece) {
+                            board.printBoard();
+                            hasMoved = true;
+                        } else {
+                            writer.writeLine("Could not move piece");
+                        }
+                    } else {
+                        writer.writeLine("No piece detected on selected square");
+                    }
                 }
             } else {
                 if (parts.length < 3) {
